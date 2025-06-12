@@ -3,52 +3,69 @@ from discord import app_commands
 from discord.ext import commands
 from db.mongo import register_server, update_server, get_server_by_id
 from typing import Literal
+from config import lang
 
 class ServerSetting(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name="registerserver", description="register server (required)")
+    @commands.command(name="server_register"
+        , aliases=[entry["name"] for entry in lang["server_register"].values()])
     async def register_server_command(self, ctx: commands.Context):
+        invoke = ctx.invoked_with
+        local = ""
+        if invoke == "setchannel":
+            local = "en"
+        elif invoke == "채널등록":
+            local = "ko"
+
         guild = ctx.guild
         if not guild:
-            await ctx.send("this command can be used only in the guild/server", ephemeral=False)
+            await ctx.send(lang["error"][local]["not_guild"])
             return
 
         if ctx.author.id != guild.owner_id:
-            await ctx.send("only owner can use this command", ephemeral=False)
+            await ctx.send(lang["error"][local]["not_owner"])
             return
 
         success = register_server(guild.id, guild.owner_id)
 
         if success:
-            await ctx.send(f"server **{guild.name}**(id: `{guild.id}`) has been registered", ephemeral=True)
-            await ctx.send("you can proceed with server settings please take a look !help")
+            print(lang["server_register"][local]["response"].format(server_name=guild.name))
+            await ctx.send(lang["server_register"][local]["response"].format(server_name=guild.name))
         else:
-            await ctx.send("this server has already been registered", ephemeral=False)
+            await ctx.send(lang["error"][local]["already_registered"])
 
-    @commands.command(name="setmessage", description="set up message ids for pixely servers")
-    async def register_server_command(self, ctx: commands.Context, type_of: Literal['rule', 'role', 'youtube']
+    @commands.command(name="set_channel"
+        , aliases=[entry["name"] for entry in lang["server_channel"].values()])
+    async def set_channel(self, ctx: commands.Context, type_of: Literal['rule', 'role', 'youtube']
                                       , target_message_id: str):
+        invoke = ctx.invoked_with
+        local = ""
+        if invoke == "setchannel" :
+            local = "en"
+        elif invoke == "채널등록" :
+            local = "ko"
+
+
         guild = ctx.guild
         if not guild:
-            await ctx.send("this command can be used only in the guild/server", ephemeral=False)
+            await ctx.send(lang["error"][local]["not_guild"])
             return
 
         if ctx.author.id != guild.owner_id:
-            await ctx.send("only owner can use this command", ephemeral=False)
+            await ctx.send(lang["error"][local]["not_owner"])
             return
 
         if not get_server_by_id(ctx.guild.id):
-            await ctx.send("server has not been registered")
+            await ctx.send(lang["error"][local]["not_registered"])
             return
 
         try:
             update_server(guild.id, guild.owner_id, type_of, int(target_message_id))
-            await ctx.send(f"server **{guild.name}**(id: `{guild.id}`) has been updated for"
-                           f" {type_of} with message id of {target_message_id}", ephemeral=True)
+            await ctx.send(lang["set_channel"][local]["response"].format(server_name=guild.name))
         except Exception as e:
-            await ctx.send(f"updated failed : {e}", ephemeral=False)
+            await ctx.send(lang["error"][local]["update_failed"].format(e=e))
 
 async def setup(bot):
     await bot.add_cog(ServerSetting(bot))

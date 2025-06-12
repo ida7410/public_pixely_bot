@@ -19,7 +19,7 @@ def connect_db():
 
 def register_server(server_id: int, owner_id: int):
     existing = get_server_by_id(server_id)
-    if not existing:
+    if existing:
         return False  # already registered
 
     discord_servers_collection.insert_one({

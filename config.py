@@ -9,7 +9,7 @@ extensions = [
     "cogs.reaction_roles"
     , "cogs.personal_color"
     , "cogs.private_channel"
-    # , "cogs.youtube_tracker"
+    , "cogs.youtube_tracker"
     , "cogs.server_setting"
 ]
 
@@ -18,3 +18,10 @@ with open("./PIXELY_EMOJI.json", "r", encoding="utf-8") as f:
 TARGET_EMOJI_EX = {
     '🥦': '팀샐', '🍊': '패스', '🎙️': '시스', '💡': '그외'
 }
+
+with open("lang.json", "r", encoding="utf-8") as f:
+    lang = json.load(f)
+
+def get_message(key, local="en", **kwargs):
+    template = lang.get(key, {}).get(local, "").get("response", "")
+    return template.format(**kwargs)
