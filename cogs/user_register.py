@@ -2,7 +2,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from db.mongo import register_server, update_server, get_user_by_user_id
+from db.mongo import register_user
 from typing import Literal
 from config import lang
 
@@ -24,7 +24,7 @@ class UserRegister(commands.Cog):
             await ctx.send(lang["error"][local]["not_owner"])
             return
 
-        success = register_server(guild.id, guild.owner_id)
+        success = register_user(ctx.author.id)
 
         if success:
             await ctx.send("user registered")
