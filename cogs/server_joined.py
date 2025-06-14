@@ -14,7 +14,6 @@ class ServerJoined(commands.Cog):
 
         if guild.system_channel and guild.system_channel.permissions_for(guild.me).send_messages:
             try:
-                await guild.system_channel.send(view=Button())
                 await guild.system_channel.send(lang_en["server_joined"]["greeting"][0].format(owner_name=guild.owner.name)
                                     + "\n" + lang_ko["server_joined"]["greeting"][0].format(owner_name=guild.owner.name))
                 time.sleep(2)
