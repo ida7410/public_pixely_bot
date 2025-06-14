@@ -22,7 +22,7 @@ class InsertCard(commands.Cog):
     async def register_server_command(self, interaction: discord.Interaction, member: app_commands.Choice[str],
                                         title: str, line:str, desc: str):
 
-        insert_card(self.static_id, str(member), title, line, desc)
+        insert_card(str(member), title, line, desc)
         await interaction.response.send_message(f"카드가 등록되었습니다!\nid:{self.static_id} | member:{member}"
                     f"\n**\" {title}** \"\n{line}\n```{desc}```")
 

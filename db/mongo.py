@@ -64,9 +64,8 @@ def update_channel_data(channel_id: int, last_id, type_of: str) :
         , update={"$set": {type_of: last_id}}
     )
 
-def insert_card(id: int, member: str, title: str, line: str, desc: str):
+def insert_card(member: str, title: str, line: str, desc: str):
     card_collection.insert_one({
-        "id": id,
         "member": member,
         "title": title,
         "line": line,
