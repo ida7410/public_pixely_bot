@@ -1,0 +1,17 @@
+{
+  "server_register": {
+    "name": "서버등록",
+    "response": "**{server_name}**서버가 성공적으로 등록되었습니다\n.!도움 명령어를 사용해 서버 세팅을 진행할 수 있습니다"
+  }
+  ,"set_channel": {
+    "name": "채널등록",
+    "response": "**{server_name}**서버가 성공적으로 등록되었습니다\n.!도움 명령어를 사용해 서버 세팅을 진행할 수 있습니다"
+  },
+  "error": {
+    "not_guild": "이 커맨드는 서버에서만 사용 가능합니다",
+    "not_owner": "서버 주인만 이 커맨드를 사용할 수 있습니다",
+    "already_registered": "이 서버는 이미 등록되어 있습니다",
+    "not_registered": "서버가 등록되어 있지 않습니다 !서버등록 명령어를 통해 서버를 등록해주세요",
+    "update_failed" : "업데이트가 실패했습니다 : {e}"
+  }
+}

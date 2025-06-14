@@ -12,7 +12,7 @@
   ,"set_channel": {
     "en": {
       "name": "setchannel"
-      ,"response": "server **{guild.name}** has been updated for {type_of} with message id of {target_message_id}"
+      ,"response": "server **{server_name}** has been updated for {type_of} with message id of {target_message_id}"
     },
     "ko": {
       "name": "채널등록"

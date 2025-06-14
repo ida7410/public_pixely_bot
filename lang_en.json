@@ -1,0 +1,25 @@
+{
+  "server_joined": {
+    "greeting": [
+      "hi {owner_name}!",
+      "i am a discord bot for the fandom of minecraft youtuber crew named PIXELY",
+      "i can help with from basic setting of your server to notification for upload",
+      "if you want to proceed, please use command !register to register your server"
+    ]
+  },
+  "server_register": {
+    "name": "register"
+    ,"response": "server **{server_name}** has been registered\nyou can proceed with server settings please take a look !help"
+  },
+  "set_channel": {
+    "name": "setchannel"
+    ,"response": "server **{guild.name}** has been updated for {type_of} with message id of {target_message_id}"
+  },
+  "error": {
+    "not_guild": "this command can be used only in the guild/server",
+    "not_owner": "only owner can use this command"
+    ,"already_registered": "this server has already been registered"
+    ,"not_registered": "server has not been registered proceed server registration using !serverregister"
+    ,"update_failed" : "updated failed for : {e}"
+  }
+}

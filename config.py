@@ -11,6 +11,7 @@ extensions = [
     , "cogs.private_channel"
     , "cogs.youtube_tracker"
     , "cogs.server_setting"
+    , "cogs.server_joined"
 ]
 
 with open("./PIXELY_EMOJI.json", "r", encoding="utf-8") as f:
@@ -21,6 +22,12 @@ TARGET_EMOJI_EX = {
 
 with open("lang.json", "r", encoding="utf-8") as f:
     lang = json.load(f)
+
+with open("lang_en.json", "r", encoding="utf-8") as f:
+    lang_en = json.load(f)
+
+with open("lang_ko.json", "r", encoding="utf-8") as f:
+    lang_ko = json.load(f)
 
 def get_message(key, local="en", **kwargs):
     template = lang.get(key, {}).get(local, "").get("response", "")

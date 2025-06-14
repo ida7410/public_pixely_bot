@@ -1,6 +1,7 @@
 import discord
 from discord import app_commands
 from discord.ext import commands
+
 from db.mongo import register_server, update_server, get_server_by_id
 from typing import Literal
 from config import lang
@@ -14,7 +15,7 @@ class ServerSetting(commands.Cog):
     async def register_server_command(self, ctx: commands.Context):
         invoke = ctx.invoked_with
         local = ""
-        if invoke == "setchannel":
+        if invoke == "register":
             local = "en"
         elif invoke == "채널등록":
             local = "ko"
@@ -37,7 +38,7 @@ class ServerSetting(commands.Cog):
             await ctx.send(lang["error"][local]["already_registered"])
 
     @commands.command(name="set_channel"
-        , aliases=[entry["name"] for entry in lang["server_channel"].values()])
+        , aliases=[entry["name"] for entry in lang["set_channel"].values()])
     async def set_channel(self, ctx: commands.Context, type_of: Literal['rule', 'role', 'youtube']
                                       , target_message_id: str):
         invoke = ctx.invoked_with
