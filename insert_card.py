@@ -9,7 +9,6 @@ from config import lang
 class InsertCard(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.static_id = 0
 
     @app_commands.command(name="insertcard", description="카드 등록용")
     @app_commands.choices(member=[
@@ -26,8 +25,6 @@ class InsertCard(commands.Cog):
         insert_card(self.static_id, str(member), title, line, desc)
         await interaction.response.send_message(f"카드가 등록되었습니다!\nid:{self.static_id} | member:{member}"
                     f"\n**\" {title}** \"\n{line}\n```{desc}```")
-
-        self.static_id += 1
 
 async def setup(bot):
     await bot.add_cog(InsertCard(bot))
