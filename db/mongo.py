@@ -1,3 +1,5 @@
+from typing import Tuple
+
 from pymongo import MongoClient
 from config import MONGO_URI
 
@@ -75,13 +77,16 @@ def insert_card(member: str, title: str, line: str, desc: str):
     })
     return True
 
-def register_user(user_id: int):
+def register_user(user_id: int, pack: Tuple[str, str]):
     existing = get_user_by_user_id(user_id)
     if existing:
         return False  # already registered
 
     user_collection.insert_one({
         "user_id": user_id
+        , "cards_id": []
+        , "deck": []
+        , "pack": [{"type": pack[0], "class": pack[1]}]
         , "registered": True
     })
     return True
@@ -91,3 +96,9 @@ def get_user_by_user_id(user_id: int):
     if not existing:
         return False
     return existing
+
+def add_pack_user(user_id: int, pack: Tuple[str, str]) :
+    user_collection.update_one(
+        {"user_id": user_id},
+        {"$push": {"pack": {"type": pack[0], "class": pack[1]}}}
+    )
