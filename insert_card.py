@@ -21,10 +21,13 @@ class InsertCard(commands.Cog):
     ])
     async def register_server_command(self, interaction: discord.Interaction, member: app_commands.Choice[str],
                                         title: str, line:str, desc: str):
-
-        insert_card(str(member), title, line, desc)
-        await interaction.response.send_message(f"카드가 등록되었습니다!\nid:{self.static_id} | member:{member}"
-                    f"\n**\" {title}** \"\n{line}\n```{desc}```")
+        desc = desc.replace('\\n', "\n")
+        try:
+            insert_card(member.value, title, line, desc)
+            await interaction.response.send_message(f"카드가 등록되었습니다!\nmember:{member}"
+                    f"\n# \" {title} \"\n\n{desc}\n\n```{line}```")
+        except Exception as e:
+            print(e)
 
 async def setup(bot):
     await bot.add_cog(InsertCard(bot))
