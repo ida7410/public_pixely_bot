@@ -12,6 +12,7 @@ extensions = [
     , "cogs.youtube_tracker"
     , "cogs.server_setting"
     , "cogs.server_joined"
+    , "insert_card"
 ]
 
 with open("./PIXELY_EMOJI.json", "r", encoding="utf-8") as f:
