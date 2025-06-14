@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 from config import TARGET_EMOJI_PIXELY, TARGET_EMOJI_EX
-from db.mongo import get_server_by_id
+from db.mongo import get_user_by_user_id
 
 class ReactionRoles(commands.Cog):
     def __init__(self, bot):
@@ -9,7 +9,7 @@ class ReactionRoles(commands.Cog):
 
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
-        target_server = get_server_by_id(payload.guild_id)
+        target_server = get_user_by_user_id(payload.guild_id)
         if not target_server :
             return
 
@@ -58,7 +58,7 @@ class ReactionRoles(commands.Cog):
 
     @commands.Cog.listener()
     async def on_raw_reaction_remove(self, payload):
-        target_server = get_server_by_id(payload.guild_id)
+        target_server = get_user_by_user_id(payload.guild_id)
         if not target_server:
             return
 

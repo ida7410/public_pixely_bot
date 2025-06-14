@@ -13,6 +13,7 @@ extensions = [
     , "cogs.server_setting"
     , "cogs.server_joined"
     , "insert_card"
+    , "cogs.user_register"
 ]
 
 with open("./PIXELY_EMOJI.json", "r", encoding="utf-8") as f:
