@@ -5,9 +5,10 @@ client = None
 db = None
 youtube_channels_collection = None
 discord_servers_collection = None
+card_collection = None
 
 def connect_db():
-    global client, youtube_channels_collection, discord_servers_collection
+    global client, youtube_channels_collection, discord_servers_collection, card_collection
     client = MongoClient(MONGO_URI)
     db = client["youtube_bot"]
     print(f"db connected: {db.name}")
@@ -15,6 +16,7 @@ def connect_db():
     # separate collections
     youtube_channels_collection = db["youtube_channels"]
     discord_servers_collection = db["discord_servers"]
+    card_collection = db["card"]
 
 
 def register_server(server_id: int, owner_id: int):
@@ -61,3 +63,13 @@ def update_channel_data(channel_id: int, last_id, type_of: str) :
         filter={"channel_id": channel_id}
         , update={"$set": {type_of: last_id}}
     )
+
+def insert_card(id: int, member: str, title: str, line: str, desc: str):
+    card_collection.insert_one({
+        "id": id,
+        "member": member,
+        "title": title,
+        "line": line,
+        "desc": desc
+    })
+    return True
