@@ -80,14 +80,14 @@ def register_user(user_id: int):
     if existing:
         return False  # already registered
 
-    discord_servers_collection.insert_one({
+    user_collection.insert_one({
         "user_id": user_id
         , "registered": True
     })
     return True
 
 def get_user_by_user_id(user_id: int):
-    existing = discord_servers_collection.find_one({"server_id": user_id})
+    existing = user_collection.find_one({"user_id": user_id})
     if not existing:
         return False
     return existing

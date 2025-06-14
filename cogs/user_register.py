@@ -10,26 +10,22 @@ class UserRegister(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name="userregister")
-    async def register_server_command(self, ctx: commands.Context):
+    @app_commands.command(name="userregister", description="register user")
+    async def register_server_command(self, interaction: discord.Interaction):
         # invoke = ctx.invoked_with
         local = "en"
 
-        guild = ctx.guild
+        guild = interaction.guild
         if not guild:
-            await ctx.send(lang["error"][local]["not_guild"])
+            await interaction.response.send_message(lang["error"][local]["not_guild"])
             return
 
-        if ctx.author.id != guild.owner_id:
-            await ctx.send(lang["error"][local]["not_owner"])
-            return
-
-        success = register_user(ctx.author.id)
+        success = register_user(interaction.user.id)
 
         if success:
-            await ctx.send("user registered")
+            await interaction.response.send_message("user registered")
         else:
-            await ctx.send("already registered user")
+            await interaction.response.send_message("already registered user")
 
 async def setup(bot):
     await bot.add_cog(UserRegister(bot))
