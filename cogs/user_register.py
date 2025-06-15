@@ -1,10 +1,13 @@
+from math import floor
+from random import random
 from xml.sax.saxutils import escape
 
 import discord
 from discord import app_commands
 from discord.ext import commands, tasks
 
-from db.mongo import register_user, get_user_by_user_id, user_collection, add_pack_user, delete_pack_user
+from db.mongo import register_user, get_user_by_user_id, user_collection, add_pack_user, delete_pack_user, \
+    get_card_by_card_id_type_name_class_name, card_collection, get_card_by_card_id
 from typing import Literal
 from config import lang
 
@@ -70,8 +73,8 @@ class UserRegister(commands.Cog):
     async def unpack(self, interaction: discord.Interaction, pack: str):
         try:
             class_name, type_name = pack.split("_")
+            self.get_card_unpack(type_name, class_name)
             delete_pack_user(interaction.user.id, (type_name, class_name))
-
         except Exception as e:
             print(e)
 
@@ -82,6 +85,31 @@ class UserRegister(commands.Cog):
         except Exception as e:
             print(e)
 
+
+    def get_card_unpack(self, type_name, class_name):
+        possibility = {
+            "normal": 0,
+            "rare": 0,
+            "special": 0,
+           "legend": 0
+        }
+
+        if type_name == "all":
+            if class_name == "normal":
+                possibility["normal"] = 50
+                possibility["rare"] = 30
+                possibility["special"] = 15
+                possibility["legend"] = 5
+            if class_name != "normal":
+                possibility["special"] = 75
+                possibility["legend"] = 25
+
+            cards = list(card_collection.find())
+            total_cards = len(cards)
+            card_rand_id = floor(random() * total_cards)
+            print(card_rand_id)
+            card = cards[card_rand_id]
+            print(card)
 
 async def setup(bot):
     await bot.add_cog(UserRegister(bot))

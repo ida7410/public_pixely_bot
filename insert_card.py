@@ -1,8 +1,10 @@
+from math import floor
+
 import discord
 from discord import app_commands
 from discord.ext import commands
 
-from db.mongo import insert_card
+from db.mongo import insert_card, card_collection
 from typing import Literal
 from config import lang
 
@@ -25,12 +27,12 @@ class InsertCard(commands.Cog):
         app_commands.Choice(name="특급", value="special"),
         app_commands.Choice(name="전설", value="legend")
     ])
-    async def register_server_command(self, interaction: discord.Interaction, member: app_commands.Choice[str],
-                                        title: str, line:str, desc: str, classes: app_commands.Choice[str]):
+    async def insert_card(self, interaction: discord.Interaction, member: app_commands.Choice[str],
+                          classes: app_commands.Choice[str], title: str, desc: str, line:str):
         desc = desc.replace('\\n', "\n")
         try:
             insert_card(member.value, classes.value, title, line, desc)
-            await interaction.response.send_message(f"카드가 등록되었습니다!\nmember:{member}"
+            await interaction.response.send_message(f"카드가 등록되었습니다!\nmember: {member.value} | class: {classes.value}"
                     f"\n# \" {title} \"\n\n{desc}\n\n```{line}```")
         except Exception as e:
             print(e)
