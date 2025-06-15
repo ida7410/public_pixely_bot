@@ -68,9 +68,10 @@ def update_channel_data(channel_id: int, last_id, type_of: str) :
         , update={"$set": {type_of: last_id}}
     )
 
-def insert_card(member: str, title: str, line: str, desc: str):
+def insert_card(member: str, classes: str, title: str, line: str, desc: str):
     card_collection.insert_one({
         "member": member,
+        "class": classes,
         "title": title,
         "line": line,
         "desc": desc
@@ -102,3 +103,13 @@ def add_pack_user(user_id: int, pack: Tuple[str, str]) :
         {"user_id": user_id},
         {"$push": {"pack": {"type": pack[0], "class": pack[1]}}}
     )
+
+def delete_pack_user(user_id: int, pack: Tuple[str, str]) :
+    user = user_collection.find_one({"user_id": user_id})
+    for index, pack_db in enumerate(user["pack"]):
+        if pack_db["type"] == pack[0] and pack_db["class"] == pack[1]:
+            new_pack = user["pack"][:index] + user["pack"][index + 1:]
+            user_collection.update_one(
+                {"user_id": user_id},
+                {"$set": {"pack": new_pack}}
+            )

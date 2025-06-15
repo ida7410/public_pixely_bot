@@ -19,11 +19,17 @@ class InsertCard(commands.Cog):
         app_commands.Choice(name="잠뜰", value="sleepground"),
         app_commands.Choice(name="수현", value="suhyen")
     ])
+    @app_commands.choices(classes=[
+        app_commands.Choice(name="일반", value="normal"),
+        app_commands.Choice(name="희귀", value="rare"),
+        app_commands.Choice(name="특급", value="special"),
+        app_commands.Choice(name="전설", value="legend")
+    ])
     async def register_server_command(self, interaction: discord.Interaction, member: app_commands.Choice[str],
-                                        title: str, line:str, desc: str):
+                                        title: str, line:str, desc: str, classes: app_commands.Choice[str]):
         desc = desc.replace('\\n', "\n")
         try:
-            insert_card(member.value, title, line, desc)
+            insert_card(member.value, classes.value, title, line, desc)
             await interaction.response.send_message(f"카드가 등록되었습니다!\nmember:{member}"
                     f"\n# \" {title} \"\n\n{desc}\n\n```{line}```")
         except Exception as e:
