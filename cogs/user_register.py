@@ -73,18 +73,11 @@ class UserRegister(commands.Cog):
     async def unpack(self, interaction: discord.Interaction, pack: str):
         try:
             class_name, type_name = pack.split("_")
-            self.get_card_unpack(type_name, class_name)
+            cards = self.get_card_unpack(type_name, class_name)
+            await interaction.response.send_message(cards)
             delete_pack_user(interaction.user.id, (type_name, class_name))
         except Exception as e:
             print(e)
-
-    @app_commands.command(name="addpack", description="add pack")
-    async def add_pack(self, interaction: discord.Interaction, type_name: str, class_name: str):
-        try:
-            add_pack_user(interaction.user.id, (type_name, class_name))
-        except Exception as e:
-            print(e)
-
 
     def get_card_unpack(self, type_name, class_name):
         possibility = {
@@ -94,22 +87,56 @@ class UserRegister(commands.Cog):
            "legend": 0
         }
 
-        if type_name == "all":
-            if class_name == "normal":
-                possibility["normal"] = 50
-                possibility["rare"] = 30
-                possibility["special"] = 15
-                possibility["legend"] = 5
-            if class_name != "normal":
-                possibility["special"] = 75
-                possibility["legend"] = 25
+        cards_found = None
+        if class_name == "normal":
+            possibility["normal"] = 50
+            possibility["rare"] = 30
+            possibility["special"] = 15
+            possibility["legend"] = 5
 
-            cards = list(card_collection.find())
-            total_cards = len(cards)
-            card_rand_id = floor(random() * total_cards)
-            print(card_rand_id)
-            card = cards[card_rand_id]
-            print(card)
+            if type_name == "all":
+                cards_found = list(card_collection.find())
+            else:
+                cards_found = list(card_collection.find({"type": type_name}))
+
+        if class_name != "normal":
+            possibility["special"] = 75
+            possibility["legend"] = 25
+            if type_name == "all":
+                cards_found = list(card_collection.find({"class": {"$in": ["special", "legend"]}}))
+            else:
+                cards_found = list(card_collection.find({"class": {"$in": ["special", "legend"]}, "type": type_name}))
+
+        total_cards = len(cards_found)
+        cards = []
+        for i in range(5):
+            card_rand_index = floor(random() * total_cards)
+            card = cards_found[card_rand_index]
+            cards.append(card)
+        return cards
+
+
+    @app_commands.choices(type_name=[
+        app_commands.Choice(name="라더", value="rather"),
+        app_commands.Choice(name="덕개", value="duckgae"),
+        app_commands.Choice(name="각별", value="heptagram"),
+        app_commands.Choice(name="공룡", value="dino"),
+        app_commands.Choice(name="잠뜰", value="sleepground"),
+        app_commands.Choice(name="수현", value="suhyen"),
+        app_commands.Choice(name="전체", value="all")
+    ])
+    @app_commands.choices(class_name=[
+        app_commands.Choice(name="일반", value="normal"),
+        app_commands.Choice(name="특급", value="special")
+    ])
+    @app_commands.command(name="addpack", description="add pack")
+    async def add_pack(self, interaction: discord.Interaction, type_name: app_commands.Choice[str]
+                       , class_name: app_commands.Choice[str]):
+        try:
+            add_pack_user(interaction.user.id, (type_name.value, class_name.value))
+        except Exception as e:
+            print(e)
+
 
 async def setup(bot):
     await bot.add_cog(UserRegister(bot))
