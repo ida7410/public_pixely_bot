@@ -3,13 +3,14 @@ from random import random
 from xml.sax.saxutils import escape
 
 import discord
-from discord import app_commands
+from discord import app_commands, Color
 from discord.ext import commands, tasks
+from discord.ext.commands import ColorConverter
 
 from db.mongo import register_user, get_user_by_user_id, user_collection, add_pack_user, delete_pack_user, \
     get_card_by_card_id_type_name_class_name, card_collection, get_card_by_card_id
 from typing import Literal
-from config import lang
+from config import lang, get_color
 
 import datetime
 from datetime import timezone, timedelta, time
@@ -74,10 +75,18 @@ class UserRegister(commands.Cog):
         try:
             class_name, type_name = pack.split("_")
             cards = self.get_card_unpack(type_name, class_name)
-            await interaction.response.send_message(cards)
+            embeds = []
+            for card in cards:
+                embeds.append(self.make_embed(card))
+            await interaction.response.send_message(embeds=embeds)
             delete_pack_user(interaction.user.id, (type_name, class_name))
         except Exception as e:
             print(e)
+
+    def make_embed(self, card):
+        color = get_color(card["member"])
+        embed = discord.Embed(title=card["title"], description=f"**{card['desc']}**\n\n\" {card['line']} \"", color=color)
+        return embed
 
     def get_card_unpack(self, type_name, class_name):
         possibility = {

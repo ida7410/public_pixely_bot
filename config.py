@@ -1,6 +1,8 @@
 import json
 import os
 
+from discord import Color
+
 TOKEN = os.getenv("BOT_TOKEN")
 MONGO_URI = os.getenv("MONGO_URI")
 
@@ -34,3 +36,20 @@ with open("lang_ko.json", "r", encoding="utf-8") as f:
 def get_message(key, local="en", **kwargs):
     template = lang.get(key, {}).get(local, "").get("response", "")
     return template.format(**kwargs)
+
+def get_color(member):
+    if member == "rather":
+        color = Color.red()
+    elif member == "duckgae":
+        color = Color.orange()
+    elif member == "heptagram":
+        color = Color.yellow()
+    elif member == "dino":
+        color = Color.green()
+    elif member == "sleepground":
+        color = Color.blue()
+    elif member == "suhyen":
+        color = Color.purple()
+    else:
+        color = Color.light_grey()
+    return color
