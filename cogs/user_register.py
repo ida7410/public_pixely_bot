@@ -103,7 +103,8 @@ class UserRegister(commands.Cog):
 
             if class_name != "normal":
                 class_rand = choices(population=possibility, weights=[0, 0, 75, 25], k=1)[0]
-                cards_found = list(card_collection.find({"class": class_rand}))
+                cards_found = list(card_collection.find({"class": str(class_rand)}))
+                print(cards_found)
 
             total_cards = len(cards_found)
 

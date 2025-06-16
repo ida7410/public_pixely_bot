@@ -4,9 +4,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from db.mongo import insert_card, card_collection
-from typing import Literal
-from config import lang
+from db.mongo import insert_card
 
 class InsertCard(commands.Cog):
     def __init__(self, bot):
@@ -31,7 +29,7 @@ class InsertCard(commands.Cog):
                           classes: app_commands.Choice[str], title: str, desc: str, line:str):
         desc = desc.replace('\\n', "\n")
         try:
-            insert_card(member.value, classes.value, title, line, desc)
+            insert_card(member.value, classes.value, title, desc, line)
             await interaction.response.send_message(f"카드가 등록되었습니다!\nmember: {member.value} | class: {classes.value}"
                     f"\n# \" {title} \"\n\n{desc}\n\n```{line}```")
         except Exception as e:
