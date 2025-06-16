@@ -1,5 +1,5 @@
 from math import floor
-from random import random
+from random import random, choices
 from xml.sax.saxutils import escape
 
 import discord
@@ -8,7 +8,7 @@ from discord.ext import commands, tasks
 from discord.ext.commands import ColorConverter
 
 from db.mongo import register_user, get_user_by_user_id, user_collection, add_pack_user, delete_pack_user, \
-    get_card_by_card_id_type_name_class_name, card_collection, get_card_by_card_id
+    card_collection, add_card_to_user, get_cards_by_user_id
 from typing import Literal
 from config import lang, get_color
 
@@ -74,7 +74,7 @@ class UserRegister(commands.Cog):
     async def unpack(self, interaction: discord.Interaction, pack: str):
         try:
             class_name, type_name = pack.split("_")
-            cards = self.get_card_unpack(type_name, class_name)
+            cards = self.get_card_unpack(interaction.user.id, type_name, class_name)
             embeds = []
             for card in cards:
                 embeds.append(self.make_embed(card))
@@ -88,42 +88,38 @@ class UserRegister(commands.Cog):
         embed = discord.Embed(title=card["title"], description=f"**{card['desc']}**\n\n\" {card['line']} \"", color=color)
         return embed
 
-    def get_card_unpack(self, type_name, class_name):
-        possibility = {
-            "normal": 0,
-            "rare": 0,
-            "special": 0,
-           "legend": 0
-        }
-
-        cards_found = None
-        if class_name == "normal":
-            possibility["normal"] = 50
-            possibility["rare"] = 30
-            possibility["special"] = 15
-            possibility["legend"] = 5
-
-            if type_name == "all":
-                cards_found = list(card_collection.find())
-            else:
-                cards_found = list(card_collection.find({"type": type_name}))
-
-        if class_name != "normal":
-            possibility["special"] = 75
-            possibility["legend"] = 25
-            if type_name == "all":
-                cards_found = list(card_collection.find({"class": {"$in": ["special", "legend"]}}))
-            else:
-                cards_found = list(card_collection.find({"class": {"$in": ["special", "legend"]}, "type": type_name}))
-
-        total_cards = len(cards_found)
+    def get_card_unpack(self, user_id, type_name, class_name):
+        possibility = ["normal", "rare", "special", "legend"]
         cards = []
         for i in range(5):
+            cards_found = None
+            if class_name == "normal":
+                class_rand = choices(population=possibility, weights=[50, 30, 15, 5], k=1)[0]
+                if type_name == "all":
+                    cards_found = list(card_collection.find({"class": str(class_rand)}))
+                    print(cards_found)
+                else:
+                    cards_found = list(card_collection.find({"class": class_rand, "member": type_name}))
+
+            if class_name != "normal":
+                class_rand = choices(population=possibility, weights=[0, 0, 75, 25], k=1)[0]
+                cards_found = list(card_collection.find({"class": class_rand}))
+
+            total_cards = len(cards_found)
+
             card_rand_index = floor(random() * total_cards)
             card = cards_found[card_rand_index]
+            add_card_to_user(user_id, card["_id"])
             cards.append(card)
         return cards
 
+    @app_commands.command(name="getcards", description="unpack")
+    async def get_my_cards(self, interaction: discord.Interaction):
+        cards = get_cards_by_user_id(interaction.user.id)
+        embeds = []
+        for card in cards:
+            embeds.append(self.make_embed(card))
+        await interaction.response.send_message(embeds=embeds)
 
     @app_commands.choices(type_name=[
         app_commands.Choice(name="라더", value="rather"),

@@ -114,8 +114,8 @@ def delete_pack_user(user_id: int, pack: Tuple[str, str]) :
                 {"$set": {"pack": new_pack}}
             )
 
-def get_card_by_card_id(card_id):
-    existing = card_collection.find_one({"card_id": card_id})
+def get_card_by_id(card_id):
+    existing = card_collection.find_one({"_id": card_id})
     if not existing:
         return False
     return existing
@@ -129,3 +129,21 @@ def get_card_by_card_id_type_name_class_name(card_id, type_name, class_name):
     if not existing:
         return False
     return existing
+
+def add_card_to_user(user_id, card_id):
+    user_collection.update_one(
+        {"user_id": user_id},
+        {"$push": {"cards_id": card_id}}
+    )
+
+def get_cards_by_user_id(user_id):
+    user = user_collection.find_one({"user_id": user_id})
+    if not user:
+        return False
+
+    cards_id = user["cards_id"]
+    cards = []
+    for card_id in cards_id:
+        card = get_card_by_id(card_id)
+        cards.append(card)
+    return cards
