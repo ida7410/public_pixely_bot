@@ -85,7 +85,7 @@ def register_user(user_id: int, pack: Tuple[str, str]):
 
     user_collection.insert_one({
         "user_id": user_id
-        , "cards_id": []
+        , "cards": []
         , "deck": []
         , "pack": [{"type": pack[0], "class": pack[1]}]
         , "registered": True
@@ -131,9 +131,13 @@ def get_card_by_card_id_type_name_class_name(card_id, type_name, class_name):
     return existing
 
 def add_card_to_user(user_id, card_id):
+    quantity = 1
+    if card_id in get_cards_by_user_id(user_id).keys():
+        quantity = get_cards_by_user_id(user_id).get(card_id) + 1
+
     user_collection.update_one(
         {"user_id": user_id},
-        {"$push": {"cards_id": card_id}}
+        {"$push": {"cards": {"card_id": card_id, "quantity": quantity}}}
     )
 
 def get_cards_by_user_id(user_id):
@@ -141,9 +145,19 @@ def get_cards_by_user_id(user_id):
     if not user:
         return False
 
-    cards_id = user["cards_id"]
+    cards_id_quantity = user["cards"]
     cards = []
-    for card_id in cards_id:
-        card = get_card_by_id(card_id)
+    for card_id_quantity in cards_id_quantity:
+        card = get_card_by_id(card_id_quantity["card_id"])
         cards.append(card)
     return cards
+
+def get_card_quantity_by_user_id_card_id(user_id, card_id):
+    user = user_collection.find_one({"user_id": user_id})
+    if not user:
+        return False
+
+    for card in user["cards"]:
+        if card_id == card["card_id"]:
+            card_quantity = card["quantity"]
+            return card_quantity

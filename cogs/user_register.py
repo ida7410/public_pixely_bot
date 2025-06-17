@@ -7,8 +7,9 @@ from discord import app_commands, Color
 from discord.ext import commands, tasks
 from discord.ext.commands import ColorConverter
 
+from cogs.card_pagination_view import CardPaginationView
 from db.mongo import register_user, get_user_by_user_id, user_collection, add_pack_user, delete_pack_user, \
-    card_collection, add_card_to_user, get_cards_by_user_id
+    card_collection, add_card_to_user, get_cards_by_user_id, get_card_by_id
 from typing import Literal
 from config import lang, get_color
 
@@ -18,6 +19,7 @@ from datetime import timezone, timedelta, time
 class UserRegister(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.page = 1
         self.add_pack_at_zero.start()
 
 
@@ -73,12 +75,13 @@ class UserRegister(commands.Cog):
     @app_commands.autocomplete(pack=pack_autocomplete)
     async def unpack(self, interaction: discord.Interaction, pack: str):
         try:
+            await interaction.response.send_message("카드를 뽑는 중...")
             class_name, type_name = pack.split("_")
             cards = self.get_card_unpack(interaction.user.id, type_name, class_name)
             embeds = []
             for card in cards:
                 embeds.append(self.make_embed(card))
-            await interaction.response.send_message(embeds=embeds)
+            await interaction.edit_original_response(content="", embeds=embeds)
             delete_pack_user(interaction.user.id, (type_name, class_name))
         except Exception as e:
             print(e)
@@ -116,11 +119,26 @@ class UserRegister(commands.Cog):
 
     @app_commands.command(name="getcards", description="unpack")
     async def get_my_cards(self, interaction: discord.Interaction):
+        await interaction.response.send_message("```finding cards...```")
+        message = await interaction.original_response()
         cards = get_cards_by_user_id(interaction.user.id)
-        embeds = []
-        for card in cards:
-            embeds.append(self.make_embed(card))
-        await interaction.response.send_message(embeds=embeds)
+        view = CardPaginationView()
+        view.cards = cards
+        view.user_name = interaction.user.name
+        view.message = message
+        await view.send_message(interaction)
+
+        # try:
+        #     if len(cards_copy) % 3 == 1:
+        #         embed.add_field(name=" ", value=" ", inline=True)
+        #     if len(cards_copy) % 3 == 2:
+        #         embed.add_field(name=" ", value=" ", inline=True)
+        #         embed.add_field(name=" ", value=" ", inline=True)
+        # except Exception as e:
+        #     print(e)
+
+        # await interaction.response.send_message(embed=embed)
+
 
     @app_commands.choices(type_name=[
         app_commands.Choice(name="라더", value="rather"),
