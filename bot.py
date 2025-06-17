@@ -13,7 +13,7 @@ os.makedirs('logs', exist_ok=True)
 # Logging setup
 log_handler = logging.FileHandler('logs/discord.log', encoding='utf-8')
 log_handler.setLevel(logging.DEBUG)
-logging.basicConfig(handlers=[log_handler], level=logging.DEBUG)
+logging.basicConfig(handlers=[log_handler], level=logging.WARNING)
 
 # Intents and bot setup
 intents = discord.Intents.all()

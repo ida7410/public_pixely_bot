@@ -20,7 +20,7 @@ class CardPaginationView(discord.ui.View):
         else:
             self.prev_button.disabled = False
 
-        if self.curr_page >= int(len(self.cards) / self.sep) + 1:
+        if self.curr_page >= math.ceil(len(self.cards) / self.sep):
             self.next_button.disabled = True
         else:
             self.next_button.disabled = False

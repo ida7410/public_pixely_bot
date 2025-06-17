@@ -131,14 +131,19 @@ def get_card_by_card_id_type_name_class_name(card_id, type_name, class_name):
     return existing
 
 def add_card_to_user(user_id, card_id):
-    quantity = 1
-    if card_id in get_cards_by_user_id(user_id).keys():
-        quantity = get_cards_by_user_id(user_id).get(card_id) + 1
+    quantity = get_card_quantity_by_user_id_card_id(user_id, card_id) + 1
 
-    user_collection.update_one(
-        {"user_id": user_id},
-        {"$push": {"cards": {"card_id": card_id, "quantity": quantity}}}
+    result = user_collection.update_one(
+        {"user_id": user_id, "cards.card_id": card_id},
+        {"$set": {"cards.$.quantity": quantity}}
     )
+
+    if result.matched_count == 0:
+        # Card doesn't exist, add it
+        user_collection.update_one(
+            {"user_id": user_id},
+            {"$push": {"cards": {"card_id": card_id, "quantity": quantity}}}
+        )
 
 def get_cards_by_user_id(user_id):
     user = user_collection.find_one({"user_id": user_id})
@@ -157,7 +162,11 @@ def get_card_quantity_by_user_id_card_id(user_id, card_id):
     if not user:
         return False
 
-    for card in user["cards"]:
+    cards = user["cards"]
+
+    for card in cards:
         if card_id == card["card_id"]:
             card_quantity = card["quantity"]
             return card_quantity
+
+    return 0
