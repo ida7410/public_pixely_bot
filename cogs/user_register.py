@@ -128,17 +128,6 @@ class UserRegister(commands.Cog):
         view.message = message
         await view.send_message(interaction)
 
-        # try:
-        #     if len(cards_copy) % 3 == 1:
-        #         embed.add_field(name=" ", value=" ", inline=True)
-        #     if len(cards_copy) % 3 == 2:
-        #         embed.add_field(name=" ", value=" ", inline=True)
-        #         embed.add_field(name=" ", value=" ", inline=True)
-        # except Exception as e:
-        #     print(e)
-
-        # await interaction.response.send_message(embed=embed)
-
 
     @app_commands.choices(type_name=[
         app_commands.Choice(name="라더", value="rather"),
