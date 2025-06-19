@@ -90,6 +90,7 @@ def insert_user(discord_user_id: int, pack: Tuple[str, str]):
         , "cards": []
         , "deck": []
         , "pack": [{"type": pack[0], "class": pack[1]}]
+        , "game": ""
         , "log": ["registered"]
     })
     return True
@@ -105,6 +106,9 @@ def add_pack_user_by_user_discord_id(user_discord_id: int, pack: Tuple[str, str]
         {"discord_id": user_discord_id},
         {"$push": {"pack": {"type": pack[0], "class": pack[1], "log": f"{pack} added"}}}
     )
+
+def update_user_game_by_user_discord_id(discord_id, game_id):
+    user_collection.update_one({"discord_id": discord_id}, {"$set": {"game": game_id}})
 
 def delete_pack_user_by_user_discord_id(discord_user_id: int, pack: Tuple[str, str]) :
     user = user_collection.find_one({"discord_id": discord_user_id})
@@ -171,6 +175,14 @@ def get_user_deck_by_user_discord_id(discord_id):
 
     return deck_cards
 
+def get_user_deck_cards_id_by_user_discord_id(discord_id):
+    user = user_collection.find_one({"discord_id": discord_id})
+    if not user:
+        return False
+
+    deck_cards_id = user["deck"]
+    return deck_cards_id
+
 def add_card_to_user_deck_by_discord_id(user_discord_id, card_id):
     user_collection.update_one(
         {"discord_id": user_discord_id},
@@ -232,6 +244,10 @@ def get_game_by_id(game_id):
     game = game_collection.find_one({"_id": game_id})
     return game
 
+def get_game_by_id_finished(game_id, finished):
+    game = game_collection.find_one({"_id": game_id, "finished": finished})
+    return game
+
 def insert_game(player1_discord_id, player1_deck, player2_discord_id, player2_deck, hp):
     result = game_collection.insert_one({
         "player1": {
@@ -267,7 +283,7 @@ def update_game_finished_by_game_id(game_id):
         {"$set": {"finished": True}}
     )
 
-def update_game_hp_by_game_id_user_discord_id(game_id, player_num, hp: int, log: str):
+def update_game_hp_by_game_id_player_num(game_id, player_num, hp: int, log: str):
     game = get_game_by_id(game_id)
     original_hp = game["original_hp"]
     try:
@@ -278,6 +294,35 @@ def update_game_hp_by_game_id_user_discord_id(game_id, player_num, hp: int, log:
                 "$push": {"log": log}
             }
         )
+    except Exception as e:
+        print(e)
+
+def update_game_player_deck_by_game_id_user_discord_id(game_id, discord_id, deck, log: str):
+    game = get_game_by_id(game_id)
+    try:
+        result = game_collection.update_one(
+            {
+                "_id": game_id,
+                "player1.discord_id": discord_id
+            },
+            {
+                "$set": {"player1.deck": deck},
+                "$push": {"log": log}
+            }
+        )
+
+        if result.modified_count == 0:
+            result = game_collection.update_one(
+                {
+                    "_id": game_id,
+                    "player2.discord_id": discord_id
+                },
+                {
+                    "$set": {"player1.deck": deck},
+                    "$push": {"log": log}
+                }
+            )
+        return result.modified_count > 0
     except Exception as e:
         print(e)
 

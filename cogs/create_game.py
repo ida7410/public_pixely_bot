@@ -2,9 +2,9 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from db.mongo import insert_game, get_user_deck_by_user_discord_id, update_game_hp_by_game_id_user_discord_id, \
-    is_target_card_id_in_deck, get_card_by_title, get_games_by_user_discord_id, get_user_by_user_discord_id, \
-    get_game_by_id, update_game_finished_by_game_id
+from db.mongo import insert_game, get_user_deck_by_user_discord_id, update_game_hp_by_game_id_player_num, \
+    is_target_card_id_in_deck, get_card_by_title, get_games_by_user_discord_id, update_game_finished_by_game_id, \
+    update_user_game_by_user_discord_id, get_user_deck_cards_id_by_user_discord_id
 
 
 class CreateGame(commands.Cog):
@@ -17,15 +17,18 @@ class CreateGame(commands.Cog):
 
         player1_id = interaction.user.id
         player2_id = member.id
-        player1_deck = get_user_deck_by_user_discord_id(player1_id)
-        player2_deck = get_user_deck_by_user_discord_id(player2_id)
+        player1_deck = get_user_deck_cards_id_by_user_discord_id(player1_id)
+        player2_deck = get_user_deck_cards_id_by_user_discord_id(player2_id)
         inserted_game_id = insert_game(player1_id, player1_deck, player2_id, player2_deck, hp)
 
-        if is_target_card_id_in_deck(get_card_by_title("투리")["_id"], player1_deck):
-            update_game_hp_by_game_id_user_discord_id(inserted_game_id, 1, 3, "p1: hp + 3")
+        update_user_game_by_user_discord_id(player1_id, inserted_game_id)
+        update_user_game_by_user_discord_id(player2_id, inserted_game_id)
 
-        if is_target_card_id_in_deck(get_card_by_title("투리")["_id"], player2_deck):
-            update_game_hp_by_game_id_user_discord_id(inserted_game_id, 2, 3, "p2: hp + 3")
+        if get_card_by_title("투리")["_id"] in player1_deck:
+            update_game_hp_by_game_id_player_num(inserted_game_id, 1, 3, "p1: hp + 3")
+
+        if get_card_by_title("투리")["_id"] in player2_deck:
+            update_game_hp_by_game_id_player_num(inserted_game_id, 2, 3, "p2: hp + 3")
 
         await interaction.edit_original_response(content="game has been created!")
 

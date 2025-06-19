@@ -8,9 +8,10 @@ from discord.ext import commands, tasks
 from cogs.card_pagination_view import CardPaginationView
 from db.mongo import (user_collection, add_pack_user_by_user_discord_id, delete_pack_user_by_user_discord_id,
                       add_card_to_user_by_discord_id, get_cards_by_user_discord_id, get_user_by_user_discord_id,
-                      get_cards_by_class, get_cards_by_class_member, get_card_by_id, add_card_to_user_deck_by_discord_id,
+                      get_cards_by_class, get_cards_by_class_member, get_card_by_id,
+                      add_card_to_user_deck_by_discord_id,
                       get_cards_quantities_by_user_discord_id, drop_user_deck_by_user_discord_id,
-                      get_user_deck_by_user_discord_id)
+                      get_user_deck_by_user_discord_id, get_user_deck_cards_id_by_user_discord_id)
 from config import get_color
 
 from datetime import timezone, timedelta, time
@@ -192,7 +193,11 @@ class UserCardPack(commands.Cog):
         try:
             await interaction.response.send_message("덱을 가져오는 중...")
             message = await interaction.original_response()
-            cards = get_user_deck_by_user_discord_id(interaction.user.id)
+            deck_cards_id = get_user_deck_cards_id_by_user_discord_id(interaction.user.id)
+            cards = []
+            for deck_card_id in deck_cards_id:
+                card = get_card_by_id(deck_card_id)
+                cards.append(card)
 
             view = CardPaginationView()
             view.cards = cards
