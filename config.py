@@ -17,6 +17,7 @@ extensions = [
     , "insert_card"
     , "cogs.user_register"
     , "cogs.user_card_pack"
+    , "cogs.create_game"
 ]
 
 with open("./PIXELY_EMOJI.json", "r", encoding="utf-8") as f:

@@ -2,7 +2,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from db.mongo import register_server, update_server, get_user_by_user_id
+from db.mongo import register_server, update_server, get_server_by_server_id
 from typing import Literal
 from config import lang
 
@@ -58,7 +58,7 @@ class ServerSetting(commands.Cog):
             await ctx.send(lang["error"][local]["not_owner"])
             return
 
-        if not get_user_by_user_id(ctx.guild.id):
+        if not get_server_by_server_id(ctx.guild.id):
             await ctx.send(lang["error"][local]["not_registered"])
             return
 

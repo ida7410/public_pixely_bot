@@ -2,7 +2,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from db.mongo import register_user
+from db.mongo import insert_user
 from config import lang
 
 class UserRegister(commands.Cog):
@@ -20,7 +20,7 @@ class UserRegister(commands.Cog):
             await interaction.response.send_message(lang["error"][local]["not_guild"])
             return
 
-        user_insert_success = register_user(interaction.user.id, ("all", "normal"))
+        user_insert_success = insert_user(interaction.user.id, ("all", "normal"))
 
         if user_insert_success:
             await interaction.response.send_message("user registered")

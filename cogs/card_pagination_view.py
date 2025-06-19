@@ -1,7 +1,8 @@
 import math
 
 import discord.ui
-from db.mongo import get_card_by_id, get_user_by_user_id, get_card_quantity_by_user_id_card_id
+from db.mongo import get_card_quantity_by_user_discord_id_card_id, \
+    get_user_by_user_discord_id
 import discord
 
 class CardPaginationView(discord.ui.View):
@@ -27,13 +28,15 @@ class CardPaginationView(discord.ui.View):
 
     async def update_message(self, interaction: discord.Interaction, cards_paged):
         self.update_button()
-        await self.message.edit(content="", embed=self.make_cards_embed(cards_paged, get_user_by_user_id(interaction.user.id)), view=self)
+        await self.message.edit(content="", embed=self.make_cards_embed(cards_paged
+                                                                        , get_user_by_user_discord_id(
+                interaction.user.id)), view=self)
         await interaction.response.defer()
 
     def make_cards_embed(self, cards, user):
         embed = discord.Embed(title=f"{self.user_name}'s cards")
         for card in cards:
-            card_quantity = get_card_quantity_by_user_id_card_id(user["user_id"], card["_id"])
+            card_quantity = get_card_quantity_by_user_discord_id_card_id(user["discord_id"], card["_id"])
             embed.add_field(name=f"{card['class']} - {card['title']} - {card_quantity}", value=card['desc'],
                                 inline=True)
 
