@@ -6350,3 +6350,1562 @@ Loop thread traceback (most recent call last):
     time.sleep(0.01)
 
 WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+ERROR:discord.app_commands.tree:Ignoring exception in command 'draw'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 47, in draw
+    card_drawn = update_game_player_deck_hand_by_game_id_user_discord_id(game["_id"], player_id, rand_card_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 343, in update_game_player_deck_hand_by_game_id_user_discord_id
+    index = deck_cards_id.index(card_id)
+ValueError: ObjectId('684fce1a3f2ba1c2ddfdb101') is not in list
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'draw' raised an exception: ValueError: ObjectId('684fce1a3f2ba1c2ddfdb101') is not in list
+WARNING:discord.gateway:Shard ID None heartbeat blocked for more than 10 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2257, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2239, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1550, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1557, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 47, in draw
+    card_drawn = update_game_player_deck_hand_by_game_id_user_discord_id(game["_id"], player_id, rand_card_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 343, in update_game_player_deck_hand_by_game_id_user_discord_id
+    index = deck_cards_id.index(card_id)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1207, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1222, in _do_wait_suspend
+    time.sleep(0.01)
+
+ERROR:discord.app_commands.tree:Ignoring exception in command 'draw'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 47, in draw
+    card_drawn = update_game_player_deck_hand_by_game_id_user_discord_id(game["_id"], player_id, rand_card_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 343, in update_game_player_deck_hand_by_game_id_user_discord_id
+    index = deck_cards_id.index(card_id)
+ValueError: ObjectId('684fce1a3f2ba1c2ddfdb101') is not in list
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'draw' raised an exception: ValueError: ObjectId('684fce1a3f2ba1c2ddfdb101') is not in list
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+ERROR:discord.app_commands.tree:Ignoring exception in command 'draw'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 47, in draw
+    card_drawn = update_game_player_deck_hand_by_game_id_user_discord_id(game["_id"], player_id, rand_card_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 343, in update_game_player_deck_hand_by_game_id_user_discord_id
+    index = deck_cards_id.index(card_id)
+ValueError: ObjectId('684fce1a3f2ba1c2ddfdb0fc') is not in list
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'draw' raised an exception: ValueError: ObjectId('684fce1a3f2ba1c2ddfdb0fc') is not in list
+ERROR:discord.app_commands.tree:Ignoring exception in command 'draw'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 47, in draw
+    card_drawn = update_game_player_deck_hand_by_game_id_user_discord_id(game["_id"], player_id, rand_card_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 343, in update_game_player_deck_hand_by_game_id_user_discord_id
+    index = deck_cards_id.index(card_id)
+ValueError: ObjectId('684fce1a3f2ba1c2ddfdb0fc') is not in list
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'draw' raised an exception: ValueError: ObjectId('684fce1a3f2ba1c2ddfdb0fc') is not in list
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+WARNING:discord.http:We are being rate limited. PUT https://discord.com/api/v10/applications/919469281329168434/commands responded with 429. Retrying in 0.30 seconds.
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+ERROR:discord.app_commands.tree:Ignoring exception in command 'draw'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 47, in draw
+    card_drawn = update_game_player_deck_hand_by_game_id_user_discord_id(game["_id"], player_id, rand_card_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 354, in update_game_player_deck_hand_by_game_id_user_discord_id
+    index = deck_cards_id.index(card_id)
+ValueError: ObjectId('684fce1d3f2ba1c2ddfdb12b') is not in list
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'draw' raised an exception: ValueError: ObjectId('684fce1d3f2ba1c2ddfdb12b') is not in list
+ERROR:discord.app_commands.tree:Ignoring exception in command 'draw'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 47, in draw
+    card_drawn = update_game_player_deck_hand_by_game_id_user_discord_id(game["_id"], player_id, rand_card_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 354, in update_game_player_deck_hand_by_game_id_user_discord_id
+    index = deck_cards_id.index(card_id)
+ValueError: ObjectId('684fce1c3f2ba1c2ddfdb11a') is not in list
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'draw' raised an exception: ValueError: ObjectId('684fce1c3f2ba1c2ddfdb11a') is not in list
+WARNING:discord.gateway:Shard ID None heartbeat blocked for more than 10 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2257, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2239, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1550, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1557, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 47, in draw
+    card_drawn = update_game_player_deck_hand_by_game_id_user_discord_id(game["_id"], player_id, rand_card_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 354, in update_game_player_deck_hand_by_game_id_user_discord_id
+    index = deck_cards_id.index(card_id)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1207, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1222, in _do_wait_suspend
+    time.sleep(0.01)
+
+ERROR:discord.app_commands.tree:Ignoring exception in command 'draw'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 47, in draw
+    card_drawn = update_game_player_deck_hand_by_game_id_user_discord_id(game["_id"], player_id, rand_card_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 354, in update_game_player_deck_hand_by_game_id_user_discord_id
+    index = deck_cards_id.index(card_id)
+ValueError: ObjectId('684fce1c3f2ba1c2ddfdb118') is not in list
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'draw' raised an exception: ValueError: ObjectId('684fce1c3f2ba1c2ddfdb118') is not in list
+WARNING:discord.gateway:Shard ID None heartbeat blocked for more than 10 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2257, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2239, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1550, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1557, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 44, in draw
+    deck_cards_id = get_game_player_deck_by_id_user_discord_id(game["_id"], player_id)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1207, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1222, in _do_wait_suspend
+    time.sleep(0.01)
+
+WARNING:discord.gateway:Shard ID None heartbeat blocked for more than 20 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2257, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2239, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1550, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1557, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 44, in draw
+    deck_cards_id = get_game_player_deck_by_id_user_discord_id(game["_id"], player_id)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1207, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1222, in _do_wait_suspend
+    time.sleep(0.01)
+
+WARNING:discord.gateway:Shard ID None heartbeat blocked for more than 30 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2257, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2239, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1550, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1557, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 47, in draw
+    card_drawn = update_game_player_deck_hand_by_game_id_user_discord_id(game["_id"], player_id, rand_card_id,
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1207, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1222, in _do_wait_suspend
+    time.sleep(0.01)
+
+WARNING:discord.gateway:Shard ID None heartbeat blocked for more than 40 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2257, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2239, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1550, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1557, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 47, in draw
+    card_drawn = update_game_player_deck_hand_by_game_id_user_discord_id(game["_id"], player_id, rand_card_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 353, in update_game_player_deck_hand_by_game_id_user_discord_id
+    deck_cards_id = game[f"player{player_num}"]["deck"]
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1207, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1222, in _do_wait_suspend
+    time.sleep(0.01)
+
+WARNING:discord.gateway:Shard ID None heartbeat blocked for more than 50 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2257, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2239, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1550, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1557, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 47, in draw
+    card_drawn = update_game_player_deck_hand_by_game_id_user_discord_id(game["_id"], player_id, rand_card_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 354, in update_game_player_deck_hand_by_game_id_user_discord_id
+    index = deck_cards_id.index(card_id)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1207, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1222, in _do_wait_suspend
+    time.sleep(0.01)
+
+WARNING:discord.gateway:Shard ID None heartbeat blocked for more than 60 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2257, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2239, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1550, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1557, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 47, in draw
+    card_drawn = update_game_player_deck_hand_by_game_id_user_discord_id(game["_id"], player_id, rand_card_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 354, in update_game_player_deck_hand_by_game_id_user_discord_id
+    index = deck_cards_id.index(card_id)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1207, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1222, in _do_wait_suspend
+    time.sleep(0.01)
+
+WARNING:discord.gateway:Shard ID None heartbeat blocked for more than 70 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2257, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2239, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1550, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1557, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 47, in draw
+    card_drawn = update_game_player_deck_hand_by_game_id_user_discord_id(game["_id"], player_id, rand_card_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 354, in update_game_player_deck_hand_by_game_id_user_discord_id
+    index = deck_cards_id.index(card_id)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1207, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1222, in _do_wait_suspend
+    time.sleep(0.01)
+
+WARNING:discord.gateway:Shard ID None heartbeat blocked for more than 80 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2257, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2239, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1550, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1557, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 47, in draw
+    card_drawn = update_game_player_deck_hand_by_game_id_user_discord_id(game["_id"], player_id, rand_card_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 354, in update_game_player_deck_hand_by_game_id_user_discord_id
+    index = deck_cards_id.index(card_id)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1207, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1222, in _do_wait_suspend
+    time.sleep(0.01)
+
+ERROR:discord.app_commands.tree:Ignoring exception in command 'draw'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 47, in draw
+    card_drawn = update_game_player_deck_hand_by_game_id_user_discord_id(game["_id"], player_id, rand_card_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 354, in update_game_player_deck_hand_by_game_id_user_discord_id
+    index = deck_cards_id.index(card_id)
+ValueError: ObjectId('684fce1c3f2ba1c2ddfdb11a') is not in list
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'draw' raised an exception: ValueError: ObjectId('684fce1c3f2ba1c2ddfdb11a') is not in list
+WARNING:discord.gateway:Shard ID None heartbeat blocked for more than 10 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2257, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2239, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1550, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1557, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 46, in draw
+    rand_card_id = random.choice(deck_cards_id)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1207, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1222, in _do_wait_suspend
+    time.sleep(0.01)
+
+ERROR:discord.app_commands.tree:Ignoring exception in command 'draw'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 47, in draw
+    card_drawn = update_game_player_deck_hand_by_game_id_user_discord_id(game["_id"], player_id, rand_card_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 354, in update_game_player_deck_hand_by_game_id_user_discord_id
+    index = deck_cards_id.index(card_id)
+ValueError: ObjectId('684fce1d3f2ba1c2ddfdb12b') is not in list
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'draw' raised an exception: ValueError: ObjectId('684fce1d3f2ba1c2ddfdb12b') is not in list
+WARNING:discord.gateway:Shard ID None heartbeat blocked for more than 10 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2257, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2239, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1550, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1557, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 44, in draw
+    deck_cards_id = get_game_player_deck_by_id_user_discord_id(game["_id"], player_id)
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 252, in get_game_player_deck_by_id_user_discord_id
+    game = get_game_by_id(game_id)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1207, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1222, in _do_wait_suspend
+    time.sleep(0.01)
+
+ERROR:asyncio:Task exception was never retrieved
+future: <Task finished name='CommandTree-invoker' coro=<CommandTree._from_interaction.<locals>.wrapper() done, defined at C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py:1149> exception=KeyboardInterrupt()>
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 44, in draw
+    deck_cards_id = get_game_player_deck_by_id_user_discord_id(game["_id"], player_id)
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 257, in get_game_player_deck_by_id_user_discord_id
+    player_num = 2
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 257, in get_game_player_deck_by_id_user_discord_id
+    player_num = 2
+  File "_pydevd_bundle\\pydevd_cython_win32_310_64.pyx", line 1187, in _pydevd_bundle.pydevd_cython_win32_310_64.SafeCallWrapper.__call__
+  File "_pydevd_bundle\\pydevd_cython_win32_310_64.pyx", line 627, in _pydevd_bundle.pydevd_cython_win32_310_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle\\pydevd_cython_win32_310_64.pyx", line 1103, in _pydevd_bundle.pydevd_cython_win32_310_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle\\pydevd_cython_win32_310_64.pyx", line 1065, in _pydevd_bundle.pydevd_cython_win32_310_64.PyDBFrame.trace_dispatch
+  File "_pydevd_bundle\\pydevd_cython_win32_310_64.pyx", line 585, in _pydevd_bundle.pydevd_cython_win32_310_64.PyDBFrame.do_wait_suspend
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1207, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1222, in _do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+WARNING:discord.gateway:Shard ID None heartbeat blocked for more than 10 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2257, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2239, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1550, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1557, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 48, in draw
+    card_drawn = update_game_drop_card_in_player_deck_hand_by_game_id_player_discord_id(game["_id"], player_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 350, in update_game_player_deck_hand_by_game_id_player_discord_id
+    new_deck.extend(deck_cards_id[index + 1:])
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1207, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1222, in _do_wait_suspend
+    time.sleep(0.01)
+
+WARNING:discord.gateway:Shard ID None heartbeat blocked for more than 20 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2257, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2239, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1550, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1557, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 48, in draw
+    card_drawn = update_game_drop_card_in_player_deck_hand_by_game_id_player_discord_id(game["_id"], player_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 352, in update_game_player_deck_hand_by_game_id_player_discord_id
+    update_game_player_deck_by_game_id_player_num(game_id, player_num, new_deck, log)
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 329, in update_game_player_deck_by_game_id_player_num
+    game_collection.update_one(
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1207, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1222, in _do_wait_suspend
+    time.sleep(0.01)
+
+WARNING:discord.gateway:Shard ID None heartbeat blocked for more than 30 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2257, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2239, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1550, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1557, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 48, in draw
+    card_drawn = update_game_drop_card_in_player_deck_hand_by_game_id_player_discord_id(game["_id"], player_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 352, in update_game_player_deck_hand_by_game_id_player_discord_id
+    update_game_player_deck_by_game_id_player_num(game_id, player_num, new_deck, log)
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 329, in update_game_player_deck_by_game_id_player_num
+    game_collection.update_one(
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1207, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1222, in _do_wait_suspend
+    time.sleep(0.01)
+
+WARNING:discord.gateway:Shard ID None heartbeat blocked for more than 40 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2257, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2239, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1550, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1557, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 48, in draw
+    card_drawn = update_game_drop_card_in_player_deck_hand_by_game_id_player_discord_id(game["_id"], player_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 355, in update_game_player_deck_hand_by_game_id_player_discord_id
+    card = get_card_by_id(card_id)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1207, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1222, in _do_wait_suspend
+    time.sleep(0.01)
+
+WARNING:discord.gateway:Shard ID None heartbeat blocked for more than 50 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2257, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2239, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1550, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1557, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 48, in draw
+    card_drawn = update_game_drop_card_in_player_deck_hand_by_game_id_player_discord_id(game["_id"], player_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 355, in update_game_player_deck_hand_by_game_id_player_discord_id
+    card = get_card_by_id(card_id)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1207, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1222, in _do_wait_suspend
+    time.sleep(0.01)
+
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+ERROR:discord.app_commands.tree:Ignoring exception in command 'creategame'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 21, in create_game
+    if get_games_by_user_discord_id(player1_id)["finished"] or get_games_by_user_discord_id(player1_id)["finished"]:
+TypeError: list indices must be integers or slices, not str
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 872, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'creategame' raised an exception: TypeError: list indices must be integers or slices, not str
+ERROR:discord.app_commands.tree:Ignoring exception in command 'creategame'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 21, in create_game
+    if get_games_by_user_discord_id(player1_id)["finished"] or get_games_by_user_discord_id(player1_id)["finished"]:
+TypeError: list indices must be integers or slices, not str
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 872, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'creategame' raised an exception: TypeError: list indices must be integers or slices, not str
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+ERROR:discord.app_commands.tree:Ignoring exception in command 'creategame'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 22, in create_game
+    playing_other_game = (get_game_by_id(get_user_by_user_discord_id(player1_id)["game"]) or
+KeyError: 'game'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'creategame' raised an exception: KeyError: 'game'
+ERROR:discord.app_commands.tree:Ignoring exception in command 'creategame'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 22, in create_game
+    playing_other_game = (get_game_by_id(get_user_by_user_discord_id(player1_id)["game"]) or
+KeyError: 'game'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'creategame' raised an exception: KeyError: 'game'
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+ERROR:discord.app_commands.tree:Ignoring exception in command 'creategame'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 23, in create_game
+    game = player1["game"]
+KeyError: 'game'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'creategame' raised an exception: KeyError: 'game'
+ERROR:discord.app_commands.tree:Ignoring exception in command 'creategame'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 23, in create_game
+    game = player1["game"]
+KeyError: 'game'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'creategame' raised an exception: KeyError: 'game'
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+WARNING:discord.gateway:Shard ID None heartbeat blocked for more than 10 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2257, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2239, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1550, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1557, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 43, in draw
+    player_id = interaction.user.id
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1207, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1222, in _do_wait_suspend
+    time.sleep(0.01)
+
+ERROR:discord.app_commands.tree:Ignoring exception in command 'draw'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 41, in draw
+    await interaction.response.send_message("drawing a card...", ephemeral=True)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\interactions.py", line 1004, in send_message
+    response = await adapter.create_interaction_response(
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\webhook\async_.py", line 224, in request
+    raise NotFound(response, data)
+discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'draw' raised an exception: NotFound: 404 Not Found (error code: 10062): Unknown interaction
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+ERROR:discord.app_commands.tree:Ignoring exception in command 'draw'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 52, in draw
+    card_drawn = update_game_drop_card_in_player_deck_hand_by_game_id_player_discord_id(game["_id"], player_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 354, in update_game_drop_card_in_player_deck_hand_by_game_id_player_discord_id
+    index = deck_cards_id.index(card_id)
+ValueError: ObjectId('684fce1a3f2ba1c2ddfdb0fd') is not in list
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'draw' raised an exception: ValueError: ObjectId('684fce1a3f2ba1c2ddfdb0fd') is not in list
+ERROR:discord.app_commands.tree:Ignoring exception in command 'draw'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 52, in draw
+    card_drawn = update_game_drop_card_in_player_deck_hand_by_game_id_player_discord_id(game["_id"], player_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 354, in update_game_drop_card_in_player_deck_hand_by_game_id_player_discord_id
+    index = deck_cards_id.index(card_id)
+ValueError: ObjectId('684fce1a3f2ba1c2ddfdb0f7') is not in list
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'draw' raised an exception: ValueError: ObjectId('684fce1a3f2ba1c2ddfdb0f7') is not in list
+WARNING:discord.gateway:Shard ID None heartbeat blocked for more than 10 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2257, in <module>
+    main()
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 2239, in main
+    globals = debugger.run(setup['file'], None, None, is_module)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1550, in run
+    return self._exec(is_module, entry_point_fn, module_name, file, globals, locals)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1557, in _exec
+    pydev_imports.execfile(file, globals, locals)  # execute the script
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\_pydev_imps\_pydev_execfile.py", line 18, in execfile
+    exec(compile(contents+"\n", file, 'exec'), glob, loc)
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 55, in draw
+    embeds.append(self.make_embed(card_drawn))
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1207, in do_wait_suspend
+    self._do_wait_suspend(thread, frame, event, arg, suspend_type, from_this_thread)
+  File "C:\Program Files\JetBrains\PyCharm Community Edition 2024.2.1\plugins\python-ce\helpers\pydev\pydevd.py", line 1222, in _do_wait_suspend
+    time.sleep(0.01)
+
+ERROR:discord.app_commands.tree:Ignoring exception in command 'draw'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\card_deck.py", line 52, in draw
+    card_drawn = update_game_drop_card_in_player_deck_hand_by_game_id_player_discord_id(game["_id"], player_id,
+  File "C:\pythonProject\public_pixely_bot\db\mongo.py", line 354, in update_game_drop_card_in_player_deck_hand_by_game_id_player_discord_id
+    index = deck_cards_id.index(card_id)
+ValueError: ObjectId('684fce173f2ba1c2ddfdb0d8') is not in list
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'draw' raised an exception: ValueError: ObjectId('684fce173f2ba1c2ddfdb0d8') is not in list
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+ERROR:discord.app_commands.tree:Ignoring exception in command 'creategame'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 47, in create_game
+    await interaction.user.edit(nick=f"{interaction.user.nick} | HP {get_game_by_id(inserted_game_id)['player1']['hp']}")
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\member.py", line 939, in edit
+    data = await http.edit_member(guild_id, self.id, reason=reason, **payload)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\http.py", line 756, in request
+    raise Forbidden(response, data)
+discord.errors.Forbidden: 403 Forbidden (error code: 50013): Missing Permissions
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'creategame' raised an exception: Forbidden: 403 Forbidden (error code: 50013): Missing Permissions
+ERROR:discord.app_commands.tree:Ignoring exception in command 'creategame'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 47, in create_game
+    await interaction.user.edit(nick=f"{interaction.user.nick} | HP {get_game_by_id(inserted_game_id)['player1']['hp']}")
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\member.py", line 939, in edit
+    data = await http.edit_member(guild_id, self.id, reason=reason, **payload)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\http.py", line 756, in request
+    raise Forbidden(response, data)
+discord.errors.Forbidden: 403 Forbidden (error code: 50013): Missing Permissions
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'creategame' raised an exception: Forbidden: 403 Forbidden (error code: 50013): Missing Permissions
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+ERROR:discord.app_commands.tree:Ignoring exception in command 'creategame'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 36, in create_game
+    if member not in thread.fetch_members():
+TypeError: argument of type 'coroutine' is not iterable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 872, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'creategame' raised an exception: TypeError: argument of type 'coroutine' is not iterable
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+ERROR:asyncio:Task exception was never retrieved
+future: <Task finished name='discord-ext-tasks: YoutubeTracker.check_youtube_videos_update' coro=<Loop._loop() done, defined at C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\ext\tasks\__init__.py:207> exception=KeyboardInterrupt()>
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\bot.py", line 51, in <module>
+    asyncio.run(main())
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\ext\tasks\__init__.py", line 246, in _loop
+    await self.coro(*args, **kwargs)
+  File "C:\pythonProject\public_pixely_bot\cogs\youtube_tracker.py", line 21, in check_youtube_videos_update
+    feed = feedparser.parse(rss_url)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\feedparser\api.py", line 216, in parse
+    data = _open_resource(url_file_stream_or_string, etag, modified, agent, referrer, handlers, request_headers, result)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\feedparser\api.py", line 115, in _open_resource
+    return http.get(url_file_stream_or_string, etag, modified, agent, referrer, handlers, request_headers, result)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\feedparser\http.py", line 171, in get
+    f = opener.open(request)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\urllib\request.py", line 519, in open
+    response = self._open(req, data)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\urllib\request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\urllib\request.py", line 496, in _call_chain
+    result = func(*args)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\urllib\request.py", line 1391, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\urllib\request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1283, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1329, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1278, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1038, in _send_output
+    self.send(msg)
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 976, in send
+    self.connect()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\http\client.py", line 1455, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\ssl.py", line 1071, in _create
+    self.do_handshake()
+  File "C:\Users\Ida_gram17\AppData\Local\Programs\Python\Python310\lib\ssl.py", line 1342, in do_handshake
+    self._sslobj.do_handshake()
+KeyboardInterrupt
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+ERROR:discord.app_commands.tree:Ignoring exception in command 'creategame'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 52, in create_game
+    await interaction.user.edit(nick=f"{interaction.user.nick} | HP {get_game_by_id(inserted_game_id)['player1']['hp']}")
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\member.py", line 939, in edit
+    data = await http.edit_member(guild_id, self.id, reason=reason, **payload)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\http.py", line 756, in request
+    raise Forbidden(response, data)
+discord.errors.Forbidden: 403 Forbidden (error code: 50013): Missing Permissions
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'creategame' raised an exception: Forbidden: 403 Forbidden (error code: 50013): Missing Permissions
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+ERROR:discord.app_commands.tree:Ignoring exception in command 'creategame'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 36, in create_game
+    await thread.add_user(self.bot)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\threads.py", line 787, in add_user
+    await self._state.http.add_user_to_thread(self.id, user.id)
+AttributeError: 'Bot' object has no attribute 'id'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'creategame' raised an exception: AttributeError: 'Bot' object has no attribute 'id'
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+ERROR:discord.app_commands.tree:Ignoring exception in command 'creategame'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 55, in create_game
+    await interaction.user.edit(nick=f"{interaction.user.nick} | HP {get_game_by_id(inserted_game_id)['player1']['hp']}")
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\member.py", line 939, in edit
+    data = await http.edit_member(guild_id, self.id, reason=reason, **payload)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\http.py", line 756, in request
+    raise Forbidden(response, data)
+discord.errors.Forbidden: 403 Forbidden (error code: 50013): Missing Permissions
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 58, in create_game
+    await interaction.edit_original_response(content="game has been created!")
+AttributeError: type object 'Forbidden' has no attribute 'send'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'creategame' raised an exception: AttributeError: type object 'Forbidden' has no attribute 'send'
+ERROR:discord.app_commands.tree:Ignoring exception in command 'creategame'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 55, in create_game
+    await interaction.user.edit(nick=f"{interaction.user.nick} | HP {get_game_by_id(inserted_game_id)['player1']['hp']}")
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\member.py", line 939, in edit
+    data = await http.edit_member(guild_id, self.id, reason=reason, **payload)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\http.py", line 756, in request
+    raise Forbidden(response, data)
+discord.errors.Forbidden: 403 Forbidden (error code: 50013): Missing Permissions
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 58, in create_game
+    await interaction.edit_original_response(content="game has been created!")
+AttributeError: type object 'Forbidden' has no attribute 'send'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'creategame' raised an exception: AttributeError: type object 'Forbidden' has no attribute 'send'
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+ERROR:discord.app_commands.tree:Ignoring exception in command 'creategame'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 55, in create_game
+    await interaction.user.edit(nick=f"{interaction.user.nick} | HP {get_game_by_id(inserted_game_id)['player1']['hp']}")
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\member.py", line 939, in edit
+    data = await http.edit_member(guild_id, self.id, reason=reason, **payload)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\http.py", line 756, in request
+    raise Forbidden(response, data)
+discord.errors.Forbidden: 403 Forbidden (error code: 50013): Missing Permissions
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 58, in create_game
+    await interaction.edit_original_response(content="game has been created!")
+AttributeError: type object 'Forbidden' has no attribute 'send'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'creategame' raised an exception: AttributeError: type object 'Forbidden' has no attribute 'send'
+ERROR:discord.app_commands.tree:Ignoring exception in command 'creategame'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 55, in create_game
+    await interaction.user.edit(nick=f"{interaction.user.nick} | HP {get_game_by_id(inserted_game_id)['player1']['hp']}")
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\member.py", line 939, in edit
+    data = await http.edit_member(guild_id, self.id, reason=reason, **payload)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\http.py", line 756, in request
+    raise Forbidden(response, data)
+discord.errors.Forbidden: 403 Forbidden (error code: 50013): Missing Permissions
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 58, in create_game
+    await interaction.edit_original_response(content="game has been created!")
+AttributeError: type object 'Forbidden' has no attribute 'send'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'creategame' raised an exception: AttributeError: type object 'Forbidden' has no attribute 'send'
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported
+ERROR:discord.app_commands.tree:Ignoring exception in command 'creategame'
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 57, in create_game
+    await member.edit(nick=f"{member.nick if member.nick is not None else member.name} | HP {get_game_by_id(inserted_game_id)['player2']['hp']}")
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\member.py", line 939, in edit
+    data = await http.edit_member(guild_id, self.id, reason=reason, **payload)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\http.py", line 756, in request
+    raise Forbidden(response, data)
+discord.errors.Forbidden: 403 Forbidden (error code: 50013): Missing Permissions
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 857, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+  File "C:\pythonProject\public_pixely_bot\cogs\create_game.py", line 59, in create_game
+    await interaction.edit_original_response(content="game has been created!")
+AttributeError: type object 'Forbidden' has no attribute 'send'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\tree.py", line 1310, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 883, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+  File "C:\pythonProject\public_pixely_bot\.venv\lib\site-packages\discord\app_commands\commands.py", line 876, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'creategame' raised an exception: AttributeError: type object 'Forbidden' has no attribute 'send'
+WARNING:discord.client:PyNaCl is not installed, voice will NOT be supported

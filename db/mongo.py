@@ -12,7 +12,8 @@ user_collection = None
 game_collection = None
 
 def connect_db():
-    global client, youtube_channels_collection, discord_servers_collection, card_collection, user_collection, game_collection
+    global client, youtube_channels_collection, discord_servers_collection, card_collection, user_collection, \
+        game_collection
     client = MongoClient(MONGO_URI)
     db = client["youtube_bot"]
     print(f"db connected: {db.name}")
@@ -90,7 +91,6 @@ def insert_user(discord_user_id: int, pack: Tuple[str, str]):
         , "cards": []
         , "deck": []
         , "pack": [{"type": pack[0], "class": pack[1]}]
-        , "game": ""
         , "log": ["registered"]
     })
     return True
@@ -248,19 +248,34 @@ def get_game_by_id_finished(game_id, finished):
     game = game_collection.find_one({"_id": game_id, "finished": finished})
     return game
 
-def insert_game(player1_discord_id, player1_deck, player2_discord_id, player2_deck, hp):
+def get_game_player_deck_by_game_id_user_discord_id(game_id, player_discord_id):
+    game = get_game_by_id(game_id)
+    player_num = get_game_player_num_by_game_id_player_discord_id(game_id, player_discord_id)
+
+    deck = game[f"player{player_num}"]["deck"]
+    return deck
+
+def get_game_player_hand_by_game_id_user_discord_id(game_id, player_discord_id):
+    game = get_game_by_id(game_id)
+    player_num = get_game_player_num_by_game_id_player_discord_id(game_id, player_discord_id)
+
+    hand = game[f"player{player_num}"]["hand"]
+    return hand
+
+def insert_game(thread_id, player1_discord_id, player1_deck, player2_discord_id, player2_deck, hp):
     result = game_collection.insert_one({
+        "thread_id": thread_id,
         "player1": {
             "discord_id": player1_discord_id,
             "hp": hp,
             "deck": player1_deck,
-            "in_hand": []
+            "hand": []
         },
         "player2": {
             "discord_id": player2_discord_id,
             "hp": hp,
             "deck": player2_deck,
-            "in_hand": []
+            "hand": []
         },
         "original_hp": hp,
         "finished": False,
@@ -277,54 +292,76 @@ def update_game_log_by_game_id(game_id, log: str):
         {"$push": {"log": log}}
     )
 
-def update_game_finished_by_game_id(game_id):
+def update_game_finished_by_game_id(game_id, log: str = "game is over"):
     game_collection.update_one(
         {"_id": game_id},
         {"$set": {"finished": True}}
     )
 
-def update_game_hp_by_game_id_player_num(game_id, player_num, hp: int, log: str):
-    game = get_game_by_id(game_id)
-    original_hp = game["original_hp"]
-    try:
-        game_collection.update_one(
-            {"_id": game_id},
-            {
-                "$set": {f"player{player_num}": {"hp": original_hp + hp}},
-                "$push": {"log": log}
-            }
-        )
-    except Exception as e:
-        print(e)
+    update_game_log(game_id, log)
 
-def update_game_player_deck_by_game_id_user_discord_id(game_id, discord_id, deck, log: str):
+def update_game_hp_by_game_id_player_num(game_id, player_num, hp: int, log: str = None):
     game = get_game_by_id(game_id)
-    try:
-        result = game_collection.update_one(
-            {
-                "_id": game_id,
-                "player1.discord_id": discord_id
-            },
-            {
-                "$set": {"player1.deck": deck},
-                "$push": {"log": log}
-            }
-        )
+    original_hp = game[f"{player_num}"]["hp"]
+    game_collection.update_one(
+        {"_id": game_id},
+        {
+            "$set": {f"player{player_num}": {"hp": original_hp + hp}},
+            "$push": {"log": log}
+        }
+    )
 
-        if result.modified_count == 0:
-            result = game_collection.update_one(
-                {
-                    "_id": game_id,
-                    "player2.discord_id": discord_id
-                },
-                {
-                    "$set": {"player1.deck": deck},
-                    "$push": {"log": log}
-                }
-            )
-        return result.modified_count > 0
-    except Exception as e:
-        print(e)
+    update_game_log(game_id, log)
+
+def update_game_player_deck_by_game_id_user_discord_id(game_id, player_discord_id, deck, log: str = None):
+    player_num = get_game_player_num_by_game_id_player_discord_id(game_id, player_discord_id)
+
+    game_collection.update_one(
+        {
+            "_id": game_id,
+            f"player{player_num}.discord_id": player_discord_id
+        },
+        {
+            "$set": {f"player{player_num}.deck": deck},
+            "$push": {"log": log}
+        }
+    )
+
+    update_game_log(game_id, log)
+
+def update_game_player_deck_by_game_id_player_num(game_id, player_num, deck, log: str = None):
+    game_collection.update_one(
+        {"_id": game_id},
+        {
+            "$set": {f"player{player_num}.deck": deck},
+            "$push": {"log": log}
+        }
+    )
+
+    update_game_log(game_id, log)
+
+def update_game_player_hand_by_game_id_player_num(game_id, player_num, card_id, log: str = None):
+    game_collection.update_one(
+        {"_id": game_id},
+        {"$push": {f"player{player_num}.hand": card_id}}
+    )
+    update_game_log(game_id, log)
+
+def update_game_drop_card_in_player_deck_hand_by_game_id_player_discord_id(game_id, player_discord_id, card_id, log: str = None):
+    game = get_game_by_id(game_id)
+    player_num = get_game_player_num_by_game_id_player_discord_id(game_id, player_discord_id)
+
+    deck_cards_id = game[f"player{player_num}"]["deck"]
+    index = deck_cards_id.index(card_id)
+    new_deck = deck_cards_id[:index]
+    new_deck.extend(deck_cards_id[index + 1:])
+
+    log += get_card_by_id(card_id)["title"]
+    update_game_player_deck_by_game_id_player_num(game_id, player_num, new_deck, log)
+    update_game_player_hand_by_game_id_player_num(game_id, player_num, card_id)
+
+    card = get_card_by_id(card_id)
+    return card
 
 def is_target_card_id_in_deck(target_card_id, deck):
     for card in deck:
@@ -332,3 +369,22 @@ def is_target_card_id_in_deck(target_card_id, deck):
             return True
 
     return False
+
+def get_game_player_num_by_game_id_player_discord_id(game_id, player_discord_id):
+    game = get_game_by_id(game_id)
+    player_num = 0
+    if game["player1"]["discord_id"] == player_discord_id:
+        player_num = 1
+    if game["player2"]["discord_id"] == player_discord_id:
+        player_num = 2
+
+    return player_num
+
+def update_game_log(game_id, log: str = None):
+    if log is not None:
+        game_collection.update_one(
+            {"_id": game_id},
+            {
+                "$push": {"log": log}
+            }
+        )

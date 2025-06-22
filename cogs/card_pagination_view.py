@@ -7,7 +7,10 @@ import discord
 
 class CardPaginationView(discord.ui.View):
     curr_page = 1
-    sep = 9
+
+    def __init__(self, sep: int = 9):
+        super().__init__()
+        self.sep = sep
 
     async def send_message(self, interaction: discord.Interaction):
         try:
