@@ -302,11 +302,12 @@ def update_game_finished_by_game_id(game_id, log: str = "game is over"):
 
 def update_game_hp_by_game_id_player_num(game_id, player_num, hp: int, log: str = None):
     game = get_game_by_id(game_id)
-    original_hp = game[f"{player_num}"]["hp"]
+    original_hp = game[f"player{player_num}"]["hp"]
+    new_hp = original_hp + hp
     game_collection.update_one(
         {"_id": game_id},
         {
-            "$set": {f"player{player_num}": {"hp": original_hp + hp}},
+            "$set": {f"player{player_num}.$.hp": new_hp},
             "$push": {"log": log}
         }
     )

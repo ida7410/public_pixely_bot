@@ -2,10 +2,10 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from db.mongo import insert_game, get_user_deck_by_user_discord_id, update_game_hp_by_game_id_player_num, \
-    is_target_card_id_in_deck, get_card_by_title, get_games_by_user_discord_id, update_game_finished_by_game_id, \
-    update_user_game_by_user_discord_id, get_user_deck_cards_id_by_user_discord_id, get_game_by_id_finished, \
-    get_user_by_user_discord_id, get_game_by_id
+from cogs.check import is_user_registered
+from db.mongo import (insert_game, update_game_hp_by_game_id_player_num, get_card_by_title,
+    get_games_by_user_discord_id, update_game_finished_by_game_id, update_user_game_by_user_discord_id,
+    get_user_deck_cards_id_by_user_discord_id, get_user_by_user_discord_id, get_game_by_id)
 
 
 class CreateGame(commands.Cog):
@@ -13,6 +13,7 @@ class CreateGame(commands.Cog):
         self.bot = bot
 
     @app_commands.command(name="creategame", description="make a game")
+    @app_commands.check(is_user_registered)
     async def create_game(self, interaction: discord.Interaction, member: discord.Member, hp: int = 10):
         await interaction.response.send_message("creating game...")
 
@@ -78,10 +79,26 @@ class CreateGame(commands.Cog):
         return choices
 
     @app_commands.command(name="stopgame", description="stop game")
-    @app_commands.autocomplete(game=game_autocomplete)
+    @app_commands.check(is_user_registered)
     async def stop_game(self, interaction: discord.Interaction):
         try:
-            update_game_finished_by_game_id(get_user_by_user_discord_id(interaction.user.id)["game"])
+            await interaction.response.send_message("stopping game...")
+            game = get_game_by_id(get_user_by_user_discord_id(interaction.user.id)["game"])
+            if not game:
+                await interaction.edit_original_response(content="there is no game proceeding")
+                return
+
+            update_game_finished_by_game_id(game["_id"])
+            update_user_game_by_user_discord_id(interaction.user.id, "")
+            update_user_game_by_user_discord_id(get_user_by_user_discord_id(game["player2"]["discord_id"]), "")
+
+            player1 = interaction.guild.get_member(game["player1"]["discord_id"])
+            if player1.id != interaction.guild.owner_id:
+                await player1.edit(nick=player1.nick.split(" |")[0])
+            player2 = interaction.guild.get_member(game["player2"]["discord_id"])
+            if player2.id != interaction.guild.owner_id:
+                await player2.edit(nick=player1.nick.split(" |")[0])
+
             await interaction.response.send_message("game stopped")
         except Exception as e:
             print(e)

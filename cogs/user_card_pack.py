@@ -6,6 +6,7 @@ from discord import app_commands
 from discord.ext import commands, tasks
 
 from cogs.card_pagination_view import CardPaginationView
+from cogs.check import is_user_registered
 from db.mongo import (user_collection, add_pack_user_by_user_discord_id, delete_pack_user_by_user_discord_id,
                       add_card_to_user_by_discord_id, get_cards_by_user_discord_id, get_user_by_user_discord_id,
                       get_cards_by_class, get_cards_by_class_member, get_card_by_id,
@@ -55,7 +56,8 @@ class UserCardPack(commands.Cog):
             print(e)
 
     @app_commands.command(name="getmypack", description="check my pack")
-    async def get_pack_command(self, interaction: discord.Interaction):
+    @app_commands.check(is_user_registered)
+    async def get_pack_command(self, interaction: discord.Interaction, ephemeral: bool = False):
         result = ""
 
         try :
@@ -63,7 +65,7 @@ class UserCardPack(commands.Cog):
             user_pack = user.get("pack", "")
             for pack in user_pack:
                 result += f'{pack.get("class", "")} pack of {pack.get("type", "")}\n'
-            await interaction.response.send_message(result)
+            await interaction.response.send_message(result, ephemeral=ephemeral)
         except Exception as e:
             print(e)
 
@@ -78,6 +80,7 @@ class UserCardPack(commands.Cog):
 
     @app_commands.command(name="unpack", description="unpack")
     @app_commands.autocomplete(pack=pack_autocomplete)
+    @app_commands.check(is_user_registered)
     async def unpack(self, interaction: discord.Interaction, pack: str):
         try:
             await interaction.response.send_message("카드를 뽑는 중...")
@@ -123,7 +126,8 @@ class UserCardPack(commands.Cog):
         return cards
 
     @app_commands.command(name="getmycards", description="get my cards")
-    async def get_my_cards(self, interaction: discord.Interaction):
+    @app_commands.check(is_user_registered)
+    async def get_my_cards(self, interaction: discord.Interaction, ephemeral: bool = True):
         await interaction.response.send_message("카드 가져오는 중")
         message = await interaction.original_response()
         cards = get_cards_by_user_discord_id(interaction.user.id)
@@ -146,9 +150,10 @@ class UserCardPack(commands.Cog):
         app_commands.Choice(name="수현", value="suhyen")
     ])
     @app_commands.command(name="insertdeckby", description="insert cards in the order of")
+    @app_commands.check(is_user_registered)
     async def insert_deck(self, interaction: discord.Interaction, class_name: app_commands.Choice[str] = None
                            , member: app_commands.Choice[str] = None):
-        await interaction.response.send_message("setting deck...")
+        await interaction.response.send_message("setting deck...", ephemeral=True)
 
         drop_user_deck_by_user_discord_id(interaction.user.id)
 
@@ -183,15 +188,17 @@ class UserCardPack(commands.Cog):
         await interaction.edit_original_response(content="deck setting is done")
 
     @app_commands.command(name="dropdeck", description="drop deck")
+    @app_commands.check(is_user_registered)
     async def drop_deck(self, interaction: discord.Interaction):
-        await interaction.response.send_message("dropping deck...")
+        await interaction.response.send_message("dropping deck...", ephemeral=True)
         drop_user_deck_by_user_discord_id(interaction.user.id)
         await interaction.edit_original_response(content="deck is now empty")
 
     @app_commands.command(name="getmydeck", description="get deck")
+    @app_commands.check(is_user_registered)
     async def get_deck(self, interaction: discord.Interaction):
         try:
-            await interaction.response.send_message("덱을 가져오는 중...")
+            await interaction.response.send_message("덱을 가져오는 중...", ephemeral=True)
             message = await interaction.original_response()
             deck_cards_id = get_user_deck_cards_id_by_user_discord_id(interaction.user.id)
             cards = []
