@@ -5,7 +5,7 @@ from discord import app_commands
 from discord.ext import commands
 
 from cogs.card_pagination_view import CardPaginationView
-from cogs.check import is_user_registered
+from cogs.check import is_user_registered, is_in_game
 from config import get_color
 from db.mongo import get_game_by_id_finished, get_user_by_user_discord_id, \
     update_game_player_deck_by_game_id_user_discord_id, get_user_deck_cards_id_by_user_discord_id, \
@@ -21,6 +21,7 @@ class CardDeck(commands.Cog):
 
     @app_commands.command(name="shuffle", description="make a game")
     @app_commands.check(is_user_registered)
+    @app_commands.check(is_in_game)
     async def shuffle(self, interaction: discord.Interaction):
         await interaction.response.send_message("deck is being shuffled...", ephmeral=True)
 
@@ -41,6 +42,7 @@ class CardDeck(commands.Cog):
 
     @app_commands.command(name="draw", description="draw a card")
     @app_commands.check(is_user_registered)
+    @app_commands.check(is_in_game)
     async def draw(self, interaction: discord.Interaction, num_of_card: int = 1):
         msg = await interaction.channel.send("drawing a card...")
         await interaction.response.send_message("drawing a card...", ephemeral=True)
@@ -67,6 +69,7 @@ class CardDeck(commands.Cog):
 
     @app_commands.command(name="drawanother", description="draw a card")
     @app_commands.check(is_user_registered)
+    @app_commands.check(is_in_game)
     async def draw_another_deck(self, interaction: discord.Interaction, num_of_card: int = 1):
         msg = await interaction.channel.send("drawing a card from another player's deck...")
         await interaction.response.send_message("drawing a card...", ephemeral=True)
@@ -97,6 +100,7 @@ class CardDeck(commands.Cog):
 
     @app_commands.command(name="copyanother", description="draw a card")
     @app_commands.check(is_user_registered)
+    @app_commands.check(is_in_game)
     async def copy_another_deck(self, interaction: discord.Interaction, num_of_card: int = 1):
         msg = await interaction.channel.send("copying a card from another player's deck...")
         await interaction.response.send_message("copying a card...", ephemeral=True)
@@ -140,6 +144,7 @@ class CardDeck(commands.Cog):
 
     @app_commands.command(name="getcardinmyhand", description="get card in hand")
     @app_commands.check(is_user_registered)
+    @app_commands.check(is_in_game)
     async def get_hand(self, interaction: discord.Interaction, sep: int = 9):
         try:
             await interaction.response.send_message("덱을 가져오는 중...")
@@ -172,6 +177,7 @@ class CardDeck(commands.Cog):
     @app_commands.command(name="drop", description="unpack")
     @app_commands.autocomplete(card=card_autocomplete)
     @app_commands.check(is_user_registered)
+    @app_commands.check(is_in_game)
     async def drop(self, interaction: discord.Interaction, card: str):
         try:
             await interaction.response.send_message("dropping card...")
