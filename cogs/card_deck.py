@@ -11,7 +11,8 @@ from db.mongo import get_game_by_id_finished, get_user_by_user_discord_id, \
     update_game_player_deck_by_game_id_user_discord_id, get_user_deck_cards_id_by_user_discord_id, \
     update_game_drop_card_in_player_deck_hand_by_game_id_player_discord_id, \
     get_game_player_deck_by_game_id_user_discord_id, get_card_by_id, get_game_player_hand_by_game_id_user_discord_id, \
-    get_game_by_id, update_game_player_hand_by_game_id_player_num, get_game_player_num_by_game_id_player_discord_id
+    get_game_by_id, update_game_player_hand_by_game_id_player_num, get_game_player_num_by_game_id_player_discord_id, \
+    get_game_player_deck_by_game_id_player_num, update_game_player_deck_by_game_id_player_num
 
 
 class CardDeck(commands.Cog):
@@ -47,14 +48,15 @@ class CardDeck(commands.Cog):
         player_id = interaction.user.id
         player = get_user_by_user_discord_id(player_id)
         game = get_game_by_id_finished(player["game"], False)
+        player_num = get_game_player_num_by_game_id_player_discord_id(game["_id"], player_id)
 
         try:
             embeds = []
             for i in range(num_of_card):
-                deck_cards_id = get_game_player_deck_by_game_id_user_discord_id(game["_id"], player_id)
-                rand_card_id = random.choice(deck_cards_id)
-                card_drawn = update_game_drop_card_in_player_deck_hand_by_game_id_player_discord_id(game["_id"], player_id,
-                                        rand_card_id, "draw")
+                card_drawn = self.draw_card(game["_id"], player_num)
+                new_deck = self.new_deck(game["_id"], player_num, card_drawn["_id"])
+                update_game_player_deck_by_game_id_player_num(game["_id"], player_num, new_deck, "draw")
+                update_game_player_hand_by_game_id_player_num(game["_id"], player_num, card_drawn["_id"], "draw")
 
                 embeds.append(self.make_embed(card_drawn))
             await interaction.edit_original_response(content="", embeds=embeds)
@@ -62,6 +64,79 @@ class CardDeck(commands.Cog):
             await msg.edit(content="drawing completed")
         except Exception as e:
             print(e)
+
+    @app_commands.command(name="drawanother", description="draw a card")
+    @app_commands.check(is_user_registered)
+    async def draw_another_deck(self, interaction: discord.Interaction, num_of_card: int = 1):
+        msg = await interaction.channel.send("drawing a card from another player's deck...")
+        await interaction.response.send_message("drawing a card...", ephemeral=True)
+
+        player_id = interaction.user.id
+        player = get_user_by_user_discord_id(player_id)
+        game = get_game_by_id_finished(player["game"], False)
+        player_num = get_game_player_num_by_game_id_player_discord_id(game["_id"], player_id)
+        if player_num == 1:
+            another_player_num = 2
+        else:
+            another_player_num = 1
+
+        try:
+            embeds = []
+            for i in range(num_of_card):
+                card_drawn = self.draw_card(game["_id"], another_player_num)
+                new_deck = self.new_deck(game["_id"], another_player_num, card_drawn["_id"])
+                update_game_player_deck_by_game_id_player_num(game["_id"], another_player_num, new_deck, "draw")
+                update_game_player_hand_by_game_id_player_num(game["_id"], player_num, card_drawn["_id"], "draw")
+
+                embeds.append(self.make_embed(card_drawn))
+            await interaction.edit_original_response(content="", embeds=embeds)
+
+            await msg.edit(content="drawing completed")
+        except Exception as e:
+            print(e)
+
+    @app_commands.command(name="copyanother", description="draw a card")
+    @app_commands.check(is_user_registered)
+    async def copy_another_deck(self, interaction: discord.Interaction, num_of_card: int = 1):
+        msg = await interaction.channel.send("copying a card from another player's deck...")
+        await interaction.response.send_message("copying a card...", ephemeral=True)
+
+        player_id = interaction.user.id
+        player = get_user_by_user_discord_id(player_id)
+        game = get_game_by_id_finished(player["game"], False)
+        player_num = get_game_player_num_by_game_id_player_discord_id(game["_id"], player_id)
+        if player_num == 1:
+            another_player_num = 2
+        else:
+            another_player_num = 1
+
+        try:
+            embeds = []
+            for i in range(num_of_card):
+                card_drawn = self.draw_card(game["_id"], another_player_num)
+                update_game_player_hand_by_game_id_player_num(game["_id"], player_num, card_drawn["_id"], "draw")
+
+                embeds.append(self.make_embed(card_drawn))
+            await interaction.edit_original_response(content="", embeds=embeds)
+
+            await msg.edit(content="drawing completed")
+        except Exception as e:
+            print(e)
+
+    def draw_card(self, game_id, player_num):
+        deck_cards_id = get_game_player_deck_by_game_id_player_num(game_id, player_num)
+        rand_card_id = random.choice(deck_cards_id)
+        card_drawn = get_card_by_id(rand_card_id)
+        return card_drawn
+
+    def new_deck(self, game_id, player_num, card_id):
+        game = get_game_by_id(game_id)
+        deck_cards_id = game[f"player{player_num}"]["deck"]
+        index = deck_cards_id.index(card_id)
+        new_deck = deck_cards_id[:index]
+        new_deck.extend(deck_cards_id[index + 1:])
+        return new_deck
+
 
     @app_commands.command(name="getcardinmyhand", description="get card in hand")
     @app_commands.check(is_user_registered)

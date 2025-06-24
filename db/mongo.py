@@ -255,6 +255,11 @@ def get_game_player_deck_by_game_id_user_discord_id(game_id, player_discord_id):
     deck = game[f"player{player_num}"]["deck"]
     return deck
 
+def get_game_player_deck_by_game_id_player_num(game_id, player_num):
+    game = get_game_by_id(game_id)
+    deck = game[f"player{player_num}"]["deck"]
+    return deck
+
 def get_game_player_hand_by_game_id_user_discord_id(game_id, player_discord_id):
     game = get_game_by_id(game_id)
     player_num = get_game_player_num_by_game_id_player_discord_id(game_id, player_discord_id)
@@ -307,7 +312,7 @@ def update_game_hp_by_game_id_player_num(game_id, player_num, hp: int, log: str 
     game_collection.update_one(
         {"_id": game_id},
         {
-            "$set": {f"player{player_num}.$.hp": new_hp},
+            "$set": {f"player{player_num}.hp": new_hp},
             "$push": {"log": log}
         }
     )

@@ -17,6 +17,7 @@ extensions = [
     , "insert_card"
     , "cogs.user_register"
     , "cogs.user_card_pack"
+    , "cogs.user_card_deck"
     , "cogs.create_game"
     , "cogs.card_deck"
     , "cogs.game_hp"

@@ -89,7 +89,7 @@ class CreateGame(commands.Cog):
                 return
 
             update_game_finished_by_game_id(game["_id"])
-            update_user_game_by_user_discord_id(interaction.user.id, "")
+            update_user_game_by_user_discord_id(get_user_by_user_discord_id(game["player1"]["discord_id"]), "")
             update_user_game_by_user_discord_id(get_user_by_user_discord_id(game["player2"]["discord_id"]), "")
 
             player1 = interaction.guild.get_member(game["player1"]["discord_id"])
